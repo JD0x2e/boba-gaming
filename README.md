@@ -1,5 +1,10 @@
 # Boba Gaming
 
+Jack - Memory game 
+Chris - Guess Who
+Tim - Higher/lower with deck of cards
+
+
 ## Cooperation Plan
 
 1. What are the key strengths of each person on the team?
