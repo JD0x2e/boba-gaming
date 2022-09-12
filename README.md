@@ -1,7 +1,9 @@
 # Boba Gaming
 
 Jack - Memory game 
+
 Chris - Guess Who
+
 Tim - Higher/lower with deck of cards
 
 
