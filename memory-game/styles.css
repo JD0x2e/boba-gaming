@@ -1,0 +1,45 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.container {
+  display: grid;
+  place-items: center;
+  min-height: 100vh;
+}
+
+.heading {
+  text-align: center;
+}
+
+.cards {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  grid-gap: 2em;
+}
+
+.card {
+  height: 120px;
+  width: 150px;
+  background-color: grey;
+  border-radius: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  transition: 0.3s all ease;
+}
+
+.card:hover {
+  transform: scale(1.05);
+  transform: rotateY(180deg);
+}
+
+.card img {
+  width: 130px;
+  max-height: 120px;
+  transform: 0.3s all ease;
+  opacity: 0;
+}
