@@ -90,3 +90,31 @@ Trello workspace and regular communication between the group discussions. Will b
 2. What project management tool will be used?
 
 Trello
+
+## Git Process
+
+1. What components of your project will live on GitHub?
+
+All HTML, CSS & JS, including all images/videos and any other files which we need to keep safe.
+
+2. How will you share the repository with your teammates?
+
+git clone (url)
+
+3. What is your Git flow?
+
+- User creates a new branch
+- Make their changes
+- Push to that branch
+- Create a pull request
+- Another team member will merge the pull request to main
+- Merges happened as an when the changes being made are finished
+- Communicate time to merge on zoom/whatsapp
+
+
+
+
+
+
+
+
