@@ -52,6 +52,7 @@ Buttons
 ******************************************/
 
 button {
+  text-transform: capitalize;
   font-family: inherit;
   font-size: 1rem;
   font-weight: 400;
@@ -60,7 +61,7 @@ button {
   background-color: transparent;
   border: 2px solid var(--blu);
   border-radius: 50%;
-  margin: 0 1em;
+  margin: 0.5em;
   width: 3rem;
   height: 3rem;
   cursor: pointer;
@@ -70,9 +71,35 @@ button:hover {
   border-color: var(--o);
 }
 
+#question-btn,
+#guess-btn {
+  font-family: inherit;
+  font-size: 1rem;
+  font-weight: 400;
+  letter-spacing: 0.01em;
+  color: var(--blk);
+  background-color: var(--blu);
+  border: none;
+  border-radius: 2px;
+  padding: 0.8em;
+  margin-bottom: 1em;
+}
+
 /***************************************** 
 Typography
 ******************************************/
+
+.name-heading {
+  text-transform: capitalize;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  color: var(--y);
+  margin-bottom: 1em;
+}
+
+.answer-heading {
+  margin: 1.5em 0 2.5em 0;
+}
 
 /***************************************** 
 Layout
@@ -115,17 +142,52 @@ footer {
   min-height: 200px;
 }
 
+.buttons-container {
+  text-align: center;
+  margin: 3em 0;
+}
+
+#btn-label {
+  display: block;
+  font-size: 1.5rem;
+  color: var(--y);
+  margin-bottom: 1em;
+}
+
+#clue,
+#guess {
+  font-size: 1rem;
+  font-weight: 400;
+  letter-spacing: 0.01em;
+  color: var(--blk);
+  padding: 1em;
+}
+
+select {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  border: none;
+  border-radius: 2px;
+  max-width: 280px;
+  margin-bottom: 1em;
+}
+
 /***************************************** 
 Media Queries
 ******************************************/
-
-@media (min-width: 600px) {
+@media (min-width: 500px) {
+  button {
+    margin: 0 1em;
+  }
+}
+@media (min-width: 740px) {
   .character-container {
     grid-template-columns: repeat(3, 1fr);
   }
 }
 
-@media (min-width: 900px) {
+@media (min-width: 972px) {
   .character-container {
     grid-template-columns: repeat(4, 1fr);
   }
