@@ -1,3 +1,5 @@
+@import url("https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600&family=Poppins:wght@200;500&display=swap");
+
 * {
   margin: 0;
   padding: 0;
@@ -8,38 +10,115 @@
   display: grid;
   place-items: center;
   min-height: 100vh;
+  background-color: rgb(27, 27, 27);
 }
 
 .heading {
   text-align: center;
 }
 
+h2 {
+  text-decoration: underline;
+  font-family: "Poppins", sans-serif;
+  color: white;
+}
+
 .cards {
   display: grid;
   grid-template-columns: repeat(5, 1fr);
-  grid-gap: 2em;
+  grid-gap: 1.5em;
+  background-color: rgb(80, 80, 80);
+  padding: 2rem;
+  border: double 7.5px;
+  border-radius: 15px;
+  box-shadow: 0px 0px 7px 17px #000000;
 }
 
-.card {
-  height: 120px;
-  width: 150px;
-  background-color: grey;
-  border-radius: 10px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  cursor: pointer;
-  transition: 0.3s all ease;
-}
-
-.card:hover {
+.clicked,
+.matched {
   transform: scale(1.05);
   transform: rotateY(180deg);
 }
 
-.card img {
+.flip-box img {
   width: 130px;
   max-height: 120px;
-  transform: 0.3s all ease;
-  opacity: 0;
+}
+
+.flip-box {
+  background-color: transparent;
+  height: 120px;
+  width: 150px;
+  border: 1px solid #f1f1f1;
+  perspective: 1000px;
+  border-radius: 20px;
+}
+
+/* This container is needed to position the front and back side */
+.flip-box-inner {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  text-align: center;
+  transition: transform 0.8s;
+  transform-style: preserve-3d;
+  border-radius: 20px;
+  animation: firstflip 6s linear 1s;
+}
+
+/* Do an horizontal flip when you move the mouse over the flip box container */
+.matched .flip-box-inner,
+.clicked .flip-box-inner {
+  transform: rotateY(180deg);
+}
+
+/* Position the front and back side */
+.flip-box-front,
+.flip-box-back {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  -webkit-backface-visibility: hidden; /* Safari */
+  backface-visibility: hidden;
+  border-radius: 20px;
+}
+
+/* Style the front side (fallback if image is missing) */
+.flip-box-front {
+  background-color: #bbb;
+  color: black;
+  border-radius: 20px;
+}
+
+/* Style the back side */
+.flip-box-back {
+  /* background-color: transparent; */
+  color: rgb(80, 80, 80);
+  transform: rotateY(180deg);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 20px;
+}
+
+.clicked {
+  background-color: rgb(0, 5, 151);
+}
+
+.matched {
+  background-color: green;
+}
+
+@keyframes firstflip {
+  10% {
+    transform: rotateY(180deg);
+  }
+
+  90% {
+    transform: rotateY(180deg);
+  }
+  0%,
+  100% {
+    transform: rotateY(0deg);
+  }
 }
