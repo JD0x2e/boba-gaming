@@ -1,0 +1,132 @@
+html {
+  scroll-behavior: smooth;
+}
+
+:root {
+  --w: #f8f8f8;
+  --blk: #373737ff;
+  --g: #505050ff;
+  --blu: #b7d0f1ff;
+  --o: #f2564fff;
+  --y: #faa549ff;
+}
+
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+*::before {
+  box-sizing: border-box;
+}
+
+*::after {
+  box-sizing: border-box;
+}
+
+body {
+  min-width: 320px;
+  font-family: "Poppins", sans-serif;
+  font-size: 1rem;
+  font-weight: 400;
+  letter-spacing: 0.01em;
+  color: var(--w);
+}
+
+/***************************************** 
+General Elements
+******************************************/
+
+/***************************************** 
+Images
+******************************************/
+
+img {
+  width: 100%;
+  display: block;
+}
+
+/***************************************** 
+Buttons
+******************************************/
+
+button {
+  font-family: inherit;
+  font-size: 1rem;
+  font-weight: 400;
+  letter-spacing: 0.01em;
+  color: var(--y);
+  background-color: transparent;
+  border: 2px solid var(--blu);
+  border-radius: 50%;
+  margin: 0 1em;
+  width: 3rem;
+  height: 3rem;
+  cursor: pointer;
+}
+
+button:hover {
+  border-color: var(--o);
+}
+
+/***************************************** 
+Typography
+******************************************/
+
+/***************************************** 
+Layout
+******************************************/
+
+header {
+  background-color: var(--blk);
+  min-height: 200px;
+}
+
+main {
+  background-color: var(--blk);
+  min-height: 200px;
+}
+
+.main-container {
+  width: 90%;
+  max-width: 1024px;
+  margin: 0 auto;
+  padding: 1.5rem 0;
+}
+
+.character-container {
+  display: grid;
+  gap: 1.5rem;
+  grid-template-columns: repeat(2, 1fr);
+}
+
+.img-container {
+  min-height: 100px;
+  padding: 1em;
+  text-align: center;
+  border: 2px solid var(--blu);
+  border-radius: 8px;
+  background-color: var(--g);
+}
+
+footer {
+  background-color: var(--blk);
+  min-height: 200px;
+}
+
+/***************************************** 
+Media Queries
+******************************************/
+
+@media (min-width: 600px) {
+  .character-container {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+@media (min-width: 900px) {
+  .character-container {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
