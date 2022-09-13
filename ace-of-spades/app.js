@@ -2,6 +2,7 @@ let buttonStart = document.getElementById("start-btn");
 let buttonHigher = document.getElementById("higher");
 let buttonLower = document.getElementById("lower");
 let buttonReset = document.getElementById("reset");
+let timer = document.getElementById("timer");
 
 let suit = [" ♠ ", " ♦️ ", " ♥️ ", " ♣️ "];
 let cardNum = [
@@ -21,9 +22,10 @@ let cardNum = [
 ];
 
 let playerDeck = [];
-let counter = 0;
 let maxClick = 5;
 let score = 0;
+let timerInterval;
+let timerCount = 5;
 
 function Card(value, suit) {
   this.value = value;
@@ -69,10 +71,27 @@ function shuffle(array) {
   array.sort(() => Math.random() - 0.5);
 }
 
+function startTimer() {
+  timerInterval = setInterval(timertickDown, 1000);
+}
+
+function timertickDown() {
+  timerCount--;
+  timer.textContent = timerCount;
+  console.log("timer");
+  if (timerCount === 0) {
+    clearInterval(timerInterval);
+    timer.textContent = "Out of time ";
+    buttonStart.classname = "shown";
+  }
+}
+
 function startGame() {
   console.log("startGame");
   newDeck();
+  startTimer();
   showTopCards();
+  buttonStart.className = "hide";
 }
 
 buttonStart.addEventListener("click", startGame);

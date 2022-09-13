@@ -50,6 +50,13 @@ body {
   margin-top: 4rem;
 }
 
+.hide {
+  display: none;
+}
+
+.shown {
+}
+
 .button-container {
   margin: 0 auto;
   padding: 0 auto;
@@ -119,6 +126,7 @@ body {
 }
 
 .start {
+  cursor: pointer;
   border-radius: 12px;
   color: white;
   background-image: linear-gradient(
