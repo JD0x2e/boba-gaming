@@ -18,47 +18,52 @@
           <div class="reset">
             <button id="reset">Reset</button>
           </div>
-          <div class="timer">Timer</div>
-          <div class="score">
-            <p>Score</p>
-          </div>
+          <div id="timer"class="timer">Timer</div>
         </div>
       </section>
 
-      <section class="middle">
-        <div class="card-container">
-          <div class="one-container">
-            <div class="card-one" id="card-one"></div>
-          </div>
-          <div class="count">
-            <span>Count</span>
-          </div>
-          <div class="two-container">
-            <div class="card-two" id="card-two"></div>
-          </div>
-        </div>
+
+
+
+<section class="middle">
+<div class="card-container">
+  <div class="card">
+    <div class="background-box">
+      <div id="card-one" class="content">
+      </div>
+    </div>
+  </div>
+  <button id="start-btn"class="start">Start</button>
+<audio >
+  <source src="/ace-of-spades/audio/shuffling-cards-1.mp3" type="audio/ogg">
+</audio>
+  <div class="card">
+    <div class="background-box">
+      <div  id="card-two"class="content">
+      </div>
+    </div>
+  </div>
       </section>
+
+
 
       <section class="rank">
-        <div id="highscore" class="highscore">HIGHSCORE:5</div>
+        <div class="rank-container">
+          <div id="highscore" class="highscore">HIGHSCORE: 10</div>
+        </div>
       </section>
 
       <section class="bottom">
         <div class="button-container">
           <button class="higher">Higher</button>
-          <button class="lower">lower</button>
+          <button class="lower">Lower</button>
         </div>
       </section>
 
-      <section class="shuffle">
-        <div class="shuffle-container">
-          <button class="shuffle">Shuffle</button>
-        </div>
-      </section>
+
     </main>
 
     <footer></footer>
-
-    <script src="ace-spades.js"></script>
+<script src="./app.js"></script>
   </body>
 </html>
