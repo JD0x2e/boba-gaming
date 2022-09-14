@@ -8,12 +8,17 @@
       name="description"
       content="Play the new F1 Memory Game on Boba Gaming!"
     />
+    <link rel="resetsheet" href="reset.css" />
     <link rel="stylesheet" href="styles.css" />
     <title>F1 Memory Game</title>
   </head>
   <body>
     <div class="container">
       <h2>F1 Memory Game</h2>
+      <div class="button-container">
+        <p>Lives: <span id="lives">5</span></p>
+        <button type="button" onClick="window.location.reload();">Reset</button>
+      </div>
       <div class="cards" id="cards"></div>
     </div>
     <script src="./app.js"></script>

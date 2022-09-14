@@ -4,31 +4,53 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
 }
 
 .container {
-  display: grid;
-  place-items: center;
   min-height: 100vh;
   background-color: rgb(27, 27, 27);
 }
 
-.heading {
-  text-align: center;
+.button-container {
+  /* background-color: rgb(44, 44, 44); */
+  padding-bottom: 3rem;
+  width: 20%;
+  height: 30%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  color: white;
+  margin: 0 auto;
+}
+
+button {
+  padding: 0.4em;
+  width: 25%;
+  border-radius: 10px;
+  border: black solid 1px;
+  background-color: rgb(80, 80, 80);
+  color: white;
+  font-weight: lighter;
+  cursor: pointer;
 }
 
 h2 {
   text-decoration: underline;
-  font-family: "Poppins", sans-serif;
   color: white;
+  text-align: center;
+  justify-content: center;
+  padding: 2rem;
 }
 
 .cards {
   display: grid;
+  padding: 2rem;
+  width: 65%;
+  margin: 0 auto;
   grid-template-columns: repeat(5, 1fr);
   grid-gap: 1.5em;
   background-color: rgb(80, 80, 80);
-  padding: 2rem;
   border: double 7.5px;
   border-radius: 15px;
   box-shadow: 0px 0px 7px 17px #000000;
@@ -52,6 +74,7 @@ h2 {
   border: 1px solid #f1f1f1;
   perspective: 1000px;
   border-radius: 20px;
+  margin: 0 auto;
 }
 
 /* This container is needed to position the front and back side */
@@ -64,6 +87,7 @@ h2 {
   transform-style: preserve-3d;
   border-radius: 20px;
   animation: firstflip 6s linear 1s;
+  margin: 0 auto;
 }
 
 /* Do an horizontal flip when you move the mouse over the flip box container */

@@ -1,9 +1,11 @@
 let counter = 0;
+let lives = 5;
 let firstCardSelection = "";
 let secondCardSelection = "";
 let firstCardId = 0;
 let secondCardId = 0;
 let cardsContainer = document.getElementById("cards");
+let livesContainer = document.getElementById("lives");
 
 const carNames = [
   { name: "Red Bull", src: "./images/Redbull.png" },
@@ -80,6 +82,8 @@ Card.prototype.render = function () {
           flipBox.classList.remove("clicked");
           firstCard.classList.remove("clicked");
         }, 2000);
+        lives--;
+        livesContainer.textContent = lives;
         // set time out so classes get removed after 2seconds
       }
 
@@ -95,22 +99,32 @@ Card.prototype.render = function () {
 
 Card.allCars = [];
 
-let currentId = 1;
+function start() {
+  let currentId = 1;
 
-for (let i = 0; i < carNames.length; i++) {
-  let newCard = new Card(carNames[i].src, carNames[i].name, currentId);
-  currentId++;
-  let newCardCopy = new Card(carNames[i].src, carNames[i].name, currentId);
-  currentId++;
-  newCard.render();
-  newCardCopy.render();
+  for (let i = 0; i < carNames.length; i++) {
+    new Card(carNames[i].src, carNames[i].name, currentId);
+    currentId++;
+    new Card(carNames[i].src, carNames[i].name, currentId);
+    currentId++;
+  }
+
+  shuffle(Card.allCars);
+  for (let i = 0; i < Card.allCars.length; i++) {
+    Card.allCars[i].render();
+  }
 }
 
 console.log(Card.allCars);
-
+console.log(counter);
 console.log(firstCardSelection);
 console.log(secondCardSelection);
 
-// when click car, save that name in an array, and when you click a second one, check it against the first one, if it matches then change the card color to green.
-
+function shuffle(array) {
+  array.sort(() => Math.random() - 0.5);
+}
 // make another function which loops through the allcars array and then render the cards in that
+
+// for loop needs to be in a function, remove the renders, seperate for loop for the all cars array
+//between these two loops, need to randomise the array
+start();
