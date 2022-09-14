@@ -5,6 +5,12 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="description" content="Play-the-Ace-of-spades-on-Boba-Gaming" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
     <link rel="stylesheet" href="reset.css" />
     <link rel="stylesheet" href="style.css" />
     <title>Ace of spades</title>
@@ -18,52 +24,64 @@
           <div class="reset">
             <button id="reset">Reset</button>
           </div>
-          <div id="timer"class="timer"></div>
+          <div id="timer" class="timer">
+            <span>Timer</span>
+          </div>
         </div>
       </section>
 
-
-
-
-<section class="middle">
-<div class="card-container">
-  <div class="card">
-    <div class="background-box">
-      <div id="card-one" class="content">
-      </div>
-    </div>
-  </div>
-  <button id="start-btn"class="start">Start</button>
-<audio >
-  <source src="/ace-of-spades/audio/shuffling-cards-1.mp3" type="audio/ogg">
-</audio>
-  <div class="card">
-    <div class="background-box">
-      <div  id="card-two"class="content">
-      </div>
-    </div>
-  </div>
+      <section>
+        <div class="card-container">
+          <div class="background-box">
+            <div id="card-one" class="flip-card">
+              <div class="flip-card-inner">
+                <div class="flip-card-front">
+                  Player
+                  <img src="./img/logo.png" alt="" />
+                </div>
+                <div class="flip-card-back">
+                  <div id="new-card1"></div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <button id="start-btn" class="start">Start</button>
+          <div id="displayAnswer">
+            <span id="correct"></span>
+          </div>
+          <div class="background-box">
+            <div id="card-two" class="flip-card">
+              <div class="flip-card-inner">
+                <div class="flip-card-front">
+                  House
+                  <img src="./img/logo.png" alt="" />
+                </div>
+                <div class="flip-card-back">
+                  <div id="new-card2"></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
       </section>
-
-
 
       <section class="rank">
         <div class="rank-container">
-          <div id="highscore" class="highscore">HIGHSCORE: 10</div>
+          <div class="highscore">
+            <span id="highscore">0</span>
+          </div>
         </div>
       </section>
 
       <section class="bottom">
         <div class="button-container">
-          <button class="higher">Higher</button>
-          <button class="lower">Lower</button>
+          <button id="higher">Higher</button>
+          <button id="lower">Lower</button>
         </div>
       </section>
-
-
     </main>
 
     <footer></footer>
-<script src="./app.js"></script>
+    <script src="./app.js"></script>
   </body>
 </html>
