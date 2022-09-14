@@ -5,13 +5,13 @@ let buttonReset = document.getElementById("reset");
 let timer = document.getElementById("timer");
 let correct = document.getElementById("correct"); // if they get it correct
 let highscore = document.getElementById("highscore");
+let livesContainer = document.getElementById("count");
 
 let suit = ["♠", "♦️", "♥️", "♣️"];
 let cardNum = [2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14];
 
 let playerDeck = [];
-let lives = 0;
-let maxLives = 2;
+let lives = 5;
 let score = 0;
 let timerInterval;
 let timerCount = 5;
@@ -131,17 +131,18 @@ function guessCard(highLowGuess) {
   }
 
   if (correctCard === false) {
-    lives++;
+    lives--;
+    livesContainer.textContent = lives;
     correct.textContent = "Wrong";
     console.log("wrong");
   }
 
-  if (lives === maxLives) {
+  if (lives === 0) {
     alert("You have run out of trys");
     console.log("Dead");
     setTimeout(() => {
       location.reload();
-    }, 1000);
+    }, 500);
   }
 
   setTimeout(() => {
@@ -180,5 +181,5 @@ buttonReset.addEventListener("click", function () {
 const leftCard = document.getElementById("card-one");
 const rightCard = document.getElementById("card-two");
 
-/// LEFT CARD IS PLAYER CARD
-/// RIGHT CARD IS PLAYER CARD
+/// LEFT CARD IS HouseDeck CARD
+/// RIGHT CARD IS PlayerDeckCARD
