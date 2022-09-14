@@ -8,16 +8,29 @@ let cardsContainer = document.getElementById("cards");
 let livesContainer = document.getElementById("lives");
 
 const carNames = [
-  { name: "Red Bull", src: "./images/Redbull.png" },
-  { name: "Mercedes", src: "./images/Mercedes.png" },
-  { name: "Ferrari", src: "./images/Ferrari.png" },
-  { name: "Mclaren", src: "./images/Mclaren.png" },
-  { name: "Alpha Tauri", src: "./images/Alphatauri.png" },
-  { name: "Aston Martin ", src: "./images/Astonmartin.png" },
-  { name: "Alpine", src: "./images/Alpine.png" },
-  { name: "Alfa Romeo", src: "./images/Alfaromeo.png" },
-  { name: "Haas", src: "./images/Haas.png" },
-  { name: "Williams", src: "./images/Williams.png" },
+  { name: "Red Bull", src: "./images/f1/Redbull.png" },
+  { name: "Mercedes", src: "./images/f1/Mercedes.png" },
+  { name: "Ferrari", src: "./images/f1/Ferrari.png" },
+  { name: "Mclaren", src: "./images/f1/Mclaren.png" },
+  { name: "Alpha Tauri", src: "./images/f1/Alphatauri.png" },
+  { name: "Aston Martin ", src: "./images/f1/Astonmartin.png" },
+  { name: "Alpine", src: "./images/f1/Alpine.png" },
+  { name: "Alfa Romeo", src: "./images/f1/Alfaromeo.png" },
+  { name: "Haas", src: "./images/f1/Haas.png" },
+  { name: "Williams", src: "./images/f1/Williams.png" },
+];
+
+const cryptoCoins = [
+  { name: "Bitcoin", src: "./images/coins/btc.jpeg" },
+  { name: "Ethereum", src: "./images/coins/eth.jpeg" },
+  { name: "Solana", src: "./images/coins/solana.png" },
+  { name: "Avalanche", src: "./images/coins/avax.png" },
+  { name: "Polygon", src: "./images/coins/polygon.png" },
+  { name: "USDC", src: "./images/coins/usdc.jpeg" },
+  { name: "XRP", src: "./images/coins/xrp.png" },
+  { name: "Shiba", src: "./images/coins/shiba.png" },
+  { name: "Dogecoin", src: "./images/coins/dogecoin.png" },
+  { name: "Near", src: "./images/coins/near.png" },
 ];
 
 function Card(src, name, id) {
@@ -50,7 +63,7 @@ Card.prototype.render = function () {
   flipBoxBack.appendChild(carImg);
 
   let logoImg = document.createElement("img");
-  logoImg.src = "./images/bobagaminglogonobg.png";
+  logoImg.src = "./images/f1/bobagaminglogonobg.png";
   logoImg.alt = "Boba Gaming Logo";
   flipBoxFront.appendChild(logoImg);
 
@@ -84,13 +97,16 @@ Card.prototype.render = function () {
         }, 2000);
         lives--;
         livesContainer.textContent = lives;
-        // set time out so classes get removed after 2seconds
       }
 
       firstCardSelection = "";
       secondCardSelection = "";
       firstCardId = 0;
       secondCardId = 0;
+    }
+    if (!lives) {
+      alert("You have ran out of guesses, better luck next time!");
+      location.reload();
     }
   });
 
@@ -99,6 +115,7 @@ Card.prototype.render = function () {
 
 Card.allCars = [];
 
+// function to make the car arrays
 function start() {
   let currentId = 1;
 
@@ -108,8 +125,8 @@ function start() {
     new Card(carNames[i].src, carNames[i].name, currentId);
     currentId++;
   }
-
   shuffle(Card.allCars);
+  // for loop to loop through the all cars array and render them
   for (let i = 0; i < Card.allCars.length; i++) {
     Card.allCars[i].render();
   }
@@ -120,11 +137,9 @@ console.log(counter);
 console.log(firstCardSelection);
 console.log(secondCardSelection);
 
+// function to shuffle the array
 function shuffle(array) {
   array.sort(() => Math.random() - 0.5);
 }
-// make another function which loops through the allcars array and then render the cards in that
 
-// for loop needs to be in a function, remove the renders, seperate for loop for the all cars array
-//between these two loops, need to randomise the array
 start();

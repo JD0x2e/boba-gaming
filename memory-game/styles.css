@@ -14,7 +14,7 @@
 
 .button-container {
   /* background-color: rgb(44, 44, 44); */
-  padding-bottom: 3rem;
+  padding-bottom: 1.7rem;
   width: 20%;
   height: 30%;
   display: flex;
@@ -25,13 +25,14 @@
 }
 
 button {
-  padding: 0.4em;
+  padding: 0.5em;
+  font-size: 1rem;
   width: 25%;
   border-radius: 10px;
   border: black solid 1px;
-  background-color: rgb(80, 80, 80);
+  background-color: #505050ff;
   color: white;
-  font-weight: lighter;
+  font-weight: normal;
   cursor: pointer;
 }
 
@@ -41,6 +42,10 @@ h2 {
   text-align: center;
   justify-content: center;
   padding: 2rem;
+}
+
+p {
+  font-size: 1.5rem;
 }
 
 .cards {
@@ -53,7 +58,7 @@ h2 {
   background-color: rgb(80, 80, 80);
   border: double 7.5px;
   border-radius: 15px;
-  box-shadow: 0px 0px 7px 17px #000000;
+  box-shadow: 0px 0px 20px 10px #000000;
 }
 
 .clicked,
@@ -71,10 +76,14 @@ h2 {
   background-color: transparent;
   height: 120px;
   width: 150px;
-  border: 1px solid #f1f1f1;
+  border: 1px solid #faa549ff;
   perspective: 1000px;
   border-radius: 20px;
   margin: 0 auto;
+  box-shadow: 5px 5px 15px 5px #ff8080, -9px 5px 15px 5px #ffe488,
+    -7px -5px 15px 5px #8cff85, 12px -5px 15px 5px #80c7ff,
+    12px 10px 15px 7px #e488ff, -10px 10px 15px 7px #ff616b,
+    -10px -7px 27px 1px #8e5cff, -1px 0px 23px 9px rgba(77, 77, 77, 0);
 }
 
 /* This container is needed to position the front and back side */
@@ -109,7 +118,8 @@ h2 {
 
 /* Style the front side (fallback if image is missing) */
 .flip-box-front {
-  background-color: #bbb;
+  /* background-color: #5f7161; */
+  background-image: linear-gradient(to bottom right, #5f7161, rgb(196, 196, 0));
   color: black;
   border-radius: 20px;
 }
@@ -117,7 +127,7 @@ h2 {
 /* Style the back side */
 .flip-box-back {
   /* background-color: transparent; */
-  color: rgb(80, 80, 80);
+  color: #505050ff;
   transform: rotateY(180deg);
   display: flex;
   justify-content: center;
@@ -126,11 +136,15 @@ h2 {
 }
 
 .clicked {
-  background-color: rgb(0, 5, 151);
+  background-color: #faa549ff;
 }
 
 .matched {
-  background-color: green;
+  background-color: #b7d0f1ff;
+}
+
+.shake {
+  background-color: red;
 }
 
 @keyframes firstflip {
