@@ -21,12 +21,12 @@ const carNames = [
 ];
 
 const cryptoCoins = [
-  { name: "Bitcoin", src: "./images/coins/btc.jpeg" },
-  { name: "Ethereum", src: "./images/coins/eth.jpeg" },
+  { name: "Bitcoin", src: "./images/coins/btc.png" },
+  { name: "Ethereum", src: "./images/coins/eth.png" },
   { name: "Solana", src: "./images/coins/solana.png" },
   { name: "Avalanche", src: "./images/coins/avax.png" },
   { name: "Polygon", src: "./images/coins/polygon.png" },
-  { name: "USDC", src: "./images/coins/usdc.jpeg" },
+  { name: "USDC", src: "./images/coins/usdc.png" },
   { name: "XRP", src: "./images/coins/xrp.png" },
   { name: "Shiba", src: "./images/coins/shiba.png" },
   { name: "Dogecoin", src: "./images/coins/dogecoin.png" },
@@ -37,12 +37,13 @@ function Card(src, name, id) {
   this.src = src;
   this.name = name;
   this.id = id;
-  Card.allCars.push(this);
+  // Card.allCars.push(this);
+  Card.allCards.push(this);
 }
 
 Card.prototype.render = function () {
   let flipBox = document.createElement("div");
-  flipBox.classList.add("flip-box");
+  flipBox.classList.add("flipbox");
   flipBox.id = this.id;
 
   let flipBoxInner = document.createElement("div");
@@ -113,26 +114,29 @@ Card.prototype.render = function () {
   cardsContainer.appendChild(flipBox);
 };
 
-Card.allCars = [];
+Card.allCards = [];
 
-// function to make the car arrays
-function start() {
+function start(gameItems) {
   let currentId = 1;
+  Card.allCards = [];
+  cardsContainer.textContent = "";
 
-  for (let i = 0; i < carNames.length; i++) {
-    new Card(carNames[i].src, carNames[i].name, currentId);
+  for (let i = 0; i < gameItems.length; i++) {
+    new Card(gameItems[i].src, gameItems[i].name, currentId);
     currentId++;
-    new Card(carNames[i].src, carNames[i].name, currentId);
+    new Card(gameItems[i].src, gameItems[i].name, currentId);
     currentId++;
   }
-  shuffle(Card.allCars);
+  shuffle(Card.allCards);
   // for loop to loop through the all cars array and render them
-  for (let i = 0; i < Card.allCars.length; i++) {
-    Card.allCars[i].render();
+  for (let i = 0; i < Card.allCards.length; i++) {
+    Card.allCards[i].render();
   }
+  flipAllCards();
 }
 
-console.log(Card.allCars);
+console.log(Card.allCards);
+// console.log(Card.allCars);
 console.log(counter);
 console.log(firstCardSelection);
 console.log(secondCardSelection);
@@ -142,4 +146,23 @@ function shuffle(array) {
   array.sort(() => Math.random() - 0.5);
 }
 
-start();
+function flipAllCards() {
+  const flipped = document.querySelectorAll(".flipbox");
+
+  for (const flipbox of flipped) {
+    flipbox.classList.add("clicked");
+    setTimeout(function () {
+      flipbox.classList.remove("clicked");
+    }, 5000);
+  }
+}
+
+let startf1 = document.getElementById("start-f1");
+startf1.addEventListener("click", function () {
+  start(carNames);
+});
+
+let startcrypto = document.getElementById("start-crypto");
+startcrypto.addEventListener("click", function () {
+  start(cryptoCoins);
+});

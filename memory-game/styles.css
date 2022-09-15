@@ -14,8 +14,9 @@
 
 .button-container {
   /* background-color: rgb(44, 44, 44); */
-  padding-bottom: 1.7rem;
-  width: 20%;
+  /* padding-bottom: 1.7rem; */
+  padding: 2rem;
+  width: 50%;
   height: 30%;
   display: flex;
   justify-content: space-between;
@@ -24,10 +25,10 @@
   margin: 0 auto;
 }
 
-button {
+.button {
   padding: 0.5em;
   font-size: 1rem;
-  width: 25%;
+  width: 19%;
   border-radius: 10px;
   border: black solid 1px;
   background-color: #505050ff;
@@ -67,12 +68,12 @@ p {
   transform: rotateY(180deg);
 }
 
-.flip-box img {
+.flipbox img {
   width: 130px;
   max-height: 120px;
 }
 
-.flip-box {
+.flipbox {
   background-color: transparent;
   height: 120px;
   width: 150px;
@@ -80,10 +81,10 @@ p {
   perspective: 1000px;
   border-radius: 20px;
   margin: 0 auto;
-  box-shadow: 5px 5px 15px 5px #ff8080, -9px 5px 15px 5px #ffe488,
+  /* box-shadow: 5px 5px 15px 5px #ff8080, -9px 5px 15px 5px #ffe488,
     -7px -5px 15px 5px #8cff85, 12px -5px 15px 5px #80c7ff,
     12px 10px 15px 7px #e488ff, -10px 10px 15px 7px #ff616b,
-    -10px -7px 27px 1px #8e5cff, -1px 0px 23px 9px rgba(77, 77, 77, 0);
+    -10px -7px 27px 1px #8e5cff, -1px 0px 23px 9px rgba(77, 77, 77, 0); */
 }
 
 /* This container is needed to position the front and back side */
@@ -95,7 +96,7 @@ p {
   transition: transform 0.8s;
   transform-style: preserve-3d;
   border-radius: 20px;
-  animation: firstflip 6s linear 1s;
+  /* animation: firstflip 6s linear 1s; */
   margin: 0 auto;
 }
 
@@ -136,7 +137,7 @@ p {
 }
 
 .clicked {
-  background-color: #faa549ff;
+  background-color: rgb(252, 183, 108);
 }
 
 .matched {
