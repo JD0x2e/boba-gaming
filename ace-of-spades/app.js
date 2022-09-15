@@ -4,13 +4,14 @@ let buttonLower = document.getElementById("lower");
 let buttonReset = document.getElementById("reset");
 let timer = document.getElementById("timer");
 let correct = document.getElementById("correct"); // if they get it correct
-let highscore = document.getElementById("highscore");
+let playerScore = document.getElementById("score");
 let livesContainer = document.getElementById("count");
 let display = document.getElementById("displayAnswer");
 
 let suit = ["♠", "♦️", "♥️", "♣️"];
 let cardNum = [2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14];
 
+let aceScore = [];
 let playerDeck = [];
 let lives = 5;
 let score = 0;
@@ -103,9 +104,11 @@ function timertickDown() {
   timer.textContent = timerCount;
   console.log("timer");
   if (timerCount === 0) {
-    timer.textContent = "Out of time ";
+    alert("You have run out of time. You scored " + score);
+    timer.textContent = "Out of time";
     buttonStart.className = "start";
     clearInterval(timerInterval);
+    setTimeout(location.reload, 1000);
   }
 }
 
@@ -121,11 +124,13 @@ function guessCard(highLowGuess) {
   if (highLowGuess === "higher" && playerCard <= houseCard) {
     score++;
     correctCard = true;
+    playerScore.textContent = score;
     correct.textContent = "Correct";
     console.log("high Correct");
   }
   if (highLowGuess === "lower" && playerCard >= houseCard) {
     score++;
+    playerScore.textContent = score;
     correctCard = true;
     correct.textContent = "Correct";
     console.log("Lower correct");
@@ -139,11 +144,12 @@ function guessCard(highLowGuess) {
   }
 
   if (lives === 0) {
-    alert("You have run out of trys");
+    alert("You have run out of trys. You scored " + score);
     console.log("Dead");
+    clearInterval(timerInterval); // Stop clock
     setTimeout(() => {
       location.reload();
-    }, 500);
+    }, 2000);
   }
 
   setTimeout(() => {
@@ -155,6 +161,7 @@ function guessCard(highLowGuess) {
 }
 
 function startGame() {
+  checkLocalStorage();
   timerCount = 30;
   console.log("startGame");
   newDeck();
@@ -184,3 +191,13 @@ const rightCard = document.getElementById("card-two");
 
 /// LEFT CARD IS HouseDeck CARD
 /// RIGHT CARD IS PlayerDeckCARD
+
+//local storage
+
+function setLocalStorage() {
+  localStorage.setItem("aceScore", JSON.stringify());
+}
+
+function checkLocalStorage() {
+  const localData = JSON.parse(localStorage.getItem("aceScore"));
+}

@@ -39,3 +39,9 @@ Pick a card message
 You lose message
 
 You Win message
+
+To Do
+
+Local storage - Highscore
+
+Darkmode
