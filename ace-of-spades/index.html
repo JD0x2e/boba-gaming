@@ -16,7 +16,7 @@
     <title>Ace of spades</title>
   </head>
   <body>
-    <header></header>
+    <header>HEADER</header>
 
     <main>
       <section class="top">
@@ -25,10 +25,14 @@
             <button id="reset">Reset</button>
           </div>
           <div class="count">
-            <span id="count"></span>
+            <p>Lives</p>
+            <span id="count">5</span>
           </div>
-          <div id="timer" class="timer">
-            <span>Timer</span>
+          <div class="timer">
+            <div class="timer-con">
+              <p>Time</p>
+              <span id="timer">30</span>
+            </div>
           </div>
         </div>
       </section>
@@ -39,7 +43,6 @@
             <div id="card-one" class="flip-card">
               <div class="flip-card-inner">
                 <div class="flip-card-front">
-                  Player
                   <img src="./img/logo.png" alt="" />
                 </div>
                 <div class="flip-card-back">
@@ -48,15 +51,21 @@
               </div>
             </div>
           </div>
-          <button id="start-btn" class="start">Start</button>
-          <div id="displayAnswer">
-            <span id="correct"></span>
+          <div class="btn-container">
+            <button id="start-btn" class="start">Start</button>
+            <div class="rank-container">
+              <div class="highscore">
+                <span id="highscore">Score: 0</span>
+              </div>
+            </div>
+            <div class="display">
+              <span id="correct"></span>
+            </div>
           </div>
           <div class="background-box">
             <div id="card-two" class="flip-card">
               <div class="flip-card-inner">
                 <div class="flip-card-front">
-                  House
                   <img src="./img/logo.png" alt="" />
                 </div>
                 <div class="flip-card-back">
@@ -64,14 +73,6 @@
                 </div>
               </div>
             </div>
-          </div>
-        </div>
-      </section>
-
-      <section class="rank">
-        <div class="rank-container">
-          <div class="highscore">
-            <span id="highscore">0</span>
           </div>
         </div>
       </section>
@@ -84,7 +85,9 @@
       </section>
     </main>
 
-    <footer></footer>
+    <footer>
+      <h3>FOOTER</h3>
+    </footer>
     <script src="./app.js"></script>
   </body>
 </html>

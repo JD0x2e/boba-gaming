@@ -6,6 +6,7 @@ let timer = document.getElementById("timer");
 let correct = document.getElementById("correct"); // if they get it correct
 let highscore = document.getElementById("highscore");
 let livesContainer = document.getElementById("count");
+let display = document.getElementById("displayAnswer");
 
 let suit = ["♠", "♦️", "♥️", "♣️"];
 let cardNum = [2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14];
@@ -154,7 +155,7 @@ function guessCard(highLowGuess) {
 }
 
 function startGame() {
-  timerCount = 120;
+  timerCount = 30;
   console.log("startGame");
   newDeck();
   startTimer();
