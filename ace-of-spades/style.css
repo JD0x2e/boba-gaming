@@ -238,14 +238,18 @@ header {
   margin-top: 150px;
 }
 
-.cardLeft span {
+.cardLeft {
+  font-size: 1.2rem;
+  color: var(--text);
   position: relative;
-  left: 120px;
+  left: 20px;
 }
 
-.cardRight span {
+.cardRight {
+  font-size: 1.2rem;
+  color: var(--text);
   position: relative;
-  left: 120px;
+  left: 20px;
 }
 
 #lower {
@@ -285,7 +289,7 @@ footer {
   height: 40px;
 }
 
-.highscore span {
+.highscore {
   font-size: 1.2rem;
   color: var(--text);
 }
