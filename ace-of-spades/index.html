@@ -1,1 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="Play-the-Ace-of-spades-on-Boba-Gaming" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="reset.css" />
+    <link rel="stylesheet" href="style.css" />
+    <title>Ace of spades</title>
+  </head>
+  <body>
+    <header>HEADER</header>
 
+    <main>
+      <section class="top">
+        <div class="timer-container">
+          <div class="reset">
+            <button id="reset">Reset</button>
+          </div>
+          <div class="count">
+            <p>Lives</p>
+            <span id="count">5</span>
+          </div>
+          <div class="timer">
+            <div class="timer-con">
+              <p>Time</p>
+              <span id="timer">30</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section>
+        <div class="card-container">
+          <div class="background-box">
+            <div id="card-one" class="flip-card">
+              <div class="flip-card-inner">
+                <div class="flip-card-front">
+                  <img src="./img/logo.png" alt="" />
+                </div>
+                <div class="flip-card-back">
+                  <div id="new-card1"></div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="btn-container">
+            <button id="start-btn" class="start">Start</button>
+            <div class="rank-container">
+              <div class="score">
+                <span>Score:</span>
+                <span id="score"></span>
+              </div>
+            </div>
+            <div class="display">
+              <span id="correct"></span>
+            </div>
+          </div>
+          <div class="background-box">
+            <div id="card-two" class="flip-card">
+              <div class="flip-card-inner">
+                <div class="flip-card-front">
+                  <img src="./img/logo.png" alt="" />
+                </div>
+                <div class="flip-card-back">
+                  <div id="new-card2"></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="bottom">
+        <div class="button-container">
+          <button id="higher">Higher</button>
+          <div class="highscore">
+            <span>Highest Score:</span>
+            <span id="highscore"></span>
+          </div>
+          <button id="lower">Lower</button>
+        </div>
+      </section>
+    </main>
+
+    <footer>
+      <h3>FOOTER</h3>
+    </footer>
+    <script src="./app.js"></script>
+  </body>
+</html>
