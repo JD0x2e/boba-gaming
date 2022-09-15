@@ -7,6 +7,14 @@
   font-family: "Poppins", sans-serif;
 }
 
+.rules {
+  display: flex;
+  justify-content: center;
+  text-align: center;
+  grid-column: 2/5;
+  color: white;
+}
+
 .container {
   min-height: 100vh;
   background-color: rgb(27, 27, 27);
@@ -63,7 +71,8 @@ p {
 }
 
 .clicked,
-.matched {
+.matched,
+.finished {
   transform: scale(1.05);
   transform: rotateY(180deg);
 }
@@ -102,7 +111,8 @@ p {
 
 /* Do an horizontal flip when you move the mouse over the flip box container */
 .matched .flip-box-inner,
-.clicked .flip-box-inner {
+.clicked .flip-box-inner,
+.finished .flip-box-inner {
   transform: rotateY(180deg);
 }
 
@@ -140,12 +150,12 @@ p {
   background-color: rgb(252, 183, 108);
 }
 
-.matched {
-  background-color: #b7d0f1ff;
+.finished {
+  background-color: #ff000087;
 }
 
-.shake {
-  background-color: red;
+.matched {
+  background-color: #b7d0f1ff;
 }
 
 @keyframes firstflip {

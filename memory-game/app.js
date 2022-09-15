@@ -107,7 +107,10 @@ Card.prototype.render = function () {
     }
     if (!lives) {
       alert("You have ran out of guesses, better luck next time!");
-      location.reload();
+      flipAllCardsEnd();
+      lives = 5;
+      livesContainer.textContent = lives;
+      // add a class to all boxes called finished, finished will be same as matched, matched will take precedence so the colour will still be matched for the one which we got correct
     }
   });
 
@@ -146,6 +149,14 @@ function shuffle(array) {
   array.sort(() => Math.random() - 0.5);
 }
 
+function flipAllCardsEnd() {
+  const flipped = document.querySelectorAll(".flipbox");
+
+  for (const flipbox of flipped) {
+    flipbox.classList.add("finished");
+  }
+}
+
 function flipAllCards() {
   const flipped = document.querySelectorAll(".flipbox");
 
@@ -160,6 +171,8 @@ function flipAllCards() {
 let startf1 = document.getElementById("start-f1");
 startf1.addEventListener("click", function () {
   start(carNames);
+  lives = 5;
+  livesContainer.textContent = lives;
 });
 
 let startcrypto = document.getElementById("start-crypto");
