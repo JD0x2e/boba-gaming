@@ -1,1 +1,38 @@
-
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Play the new Cryptocurrency Memory Game on Boba Gaming!"
+    />
+    <link rel="resetsheet" href="reset.css" />
+    <link rel="stylesheet" href="styles.css" />
+    <title>Boba Memory Game</title>
+  </head>
+  <body>
+    <div class="container">
+      <h2>Boba Memory Game</h2>
+      <div class="button-container">
+        <p>Lives: <span id="lives">5</span></p>
+        <button class="button" id="start-crypto" type="button">
+          Start Level 1
+        </button>
+        <button class="button" id="start-f1" type="button">
+          Start Level 2
+        </button>
+        <button
+          class="button"
+          type="button"
+          onClick="window.location.reload();"
+        >
+          Reset
+        </button>
+      </div>
+      <div class="cards" id="cards"></div>
+    </div>
+    <script src="./app.js"></script>
+  </body>
+</html>
