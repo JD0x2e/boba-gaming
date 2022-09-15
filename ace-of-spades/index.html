@@ -37,6 +37,16 @@
         </div>
       </section>
 
+      <div class="overview-container">
+        <div class="text">
+          <h1>♤ Ace of Spades ♤</h1>
+          <p>
+            Name of the game is beat the dealer by choosing Higher or lower.
+            Good Luck!
+          </p>
+        </div>
+      </div>
+
       <section>
         <div class="card-container">
           <div class="background-box">
@@ -49,6 +59,10 @@
                   <div id="new-card1"></div>
                 </div>
               </div>
+            </div>
+            <div class="cardLeft">
+              Remaining Cards:
+              <span id="houseDeckCount"></span>
             </div>
           </div>
           <div class="btn-container">
@@ -74,6 +88,10 @@
                 </div>
               </div>
             </div>
+            <div class="cardRight">
+              Remaining Cards:
+              <span id="playerDeckCount"></span>
+            </div>
           </div>
         </div>
       </section>
@@ -82,7 +100,7 @@
         <div class="button-container">
           <button id="higher">Higher</button>
           <div class="highscore">
-            <span>Highest Score:</span>
+            Highest Score:
             <span id="highscore"></span>
           </div>
           <button id="lower">Lower</button>

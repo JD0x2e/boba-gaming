@@ -7,11 +7,14 @@ let correct = document.getElementById("correct"); // if they get it correct
 let playerScore = document.getElementById("score");
 let livesContainer = document.getElementById("count");
 let display = document.getElementById("displayAnswer");
+let houseDeckCount = document.getElementById("houseDeckCount");
+let playerDeckCount = document.getElementById("playerDeckCount");
+let highscore = document.getElementById("highscore");
 
 let suit = ["♠", "♦️", "♥️", "♣️"];
 let cardNum = [2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14];
 
-let aceScore = [];
+let aceScore = 0;
 let playerDeck = [];
 let lives = 5;
 let score = 0;
@@ -26,6 +29,11 @@ function Card(value, suit) {
 
 Card.houseDeck = [];
 
+const displayDeckCount = () => {
+  playerDeckCount.textContent = playerDeck.length;
+  houseDeckCount.textContent = Card.houseDeck.length;
+};
+
 function newDeck() {
   console.log("newDeck");
   for (let i = 0; i < suit.length; i++) {
@@ -33,6 +41,7 @@ function newDeck() {
       new Card(cardNum[a], suit[i]);
     }
   }
+
   shuffle(Card.houseDeck);
   moveTopCard();
 }
@@ -74,8 +83,8 @@ function showTopCards() {
   } else {
     playerCardValue = playerCardObj.value;
   }
-  console.log(playerCardValue);
 
+  console.log(playerCardValue);
   houseCard.textContent = houseCardValue + houseCardObj.suit; // Puts number and suit together
 
   playerCard.textContent = playerCardValue + playerCardObj.suit;
@@ -89,6 +98,7 @@ function moveTopCard() {
   // add last card from house to player deck
   playerDeck.push(currentHouse);
   leftCard.classList.remove("flipped");
+  displayDeckCount();
 }
 
 function shuffle(array) {
@@ -96,7 +106,7 @@ function shuffle(array) {
 }
 
 function startTimer() {
-  timerInterval = setInterval(timertickDown, 1000);
+  timerInterval = setInterval(timertickDown, 500);
 }
 
 function timertickDown() {
@@ -105,10 +115,11 @@ function timertickDown() {
   console.log("timer");
   if (timerCount === 0) {
     alert("You have run out of time. You scored " + score);
-    timer.textContent = "Out of time";
+    timer.textContent = "Game over";
+    setLocalStorage();
     buttonStart.className = "start";
     clearInterval(timerInterval);
-    setTimeout(location.reload, 1000);
+    setTimeout(location.reload, 500);
   }
 }
 
@@ -146,6 +157,7 @@ function guessCard(highLowGuess) {
   if (lives === 0) {
     alert("You have run out of trys. You scored " + score);
     console.log("Dead");
+    setLocalStorage();
     clearInterval(timerInterval); // Stop clock
     setTimeout(() => {
       location.reload();
@@ -161,7 +173,6 @@ function guessCard(highLowGuess) {
 }
 
 function startGame() {
-  checkLocalStorage();
   timerCount = 30;
   console.log("startGame");
   newDeck();
@@ -194,10 +205,17 @@ const rightCard = document.getElementById("card-two");
 
 //local storage
 
-function setLocalStorage() {
-  localStorage.setItem("aceScore", JSON.stringify());
-}
+const setLocalStorage = () => {
+  if (aceScore < score) {
+    localStorage.setItem("aceScore", score);
+  }
+};
 
-function checkLocalStorage() {
-  const localData = JSON.parse(localStorage.getItem("aceScore"));
+const playerScoresStored = JSON.parse(localStorage.getItem("aceScore"));
+if (playerScoresStored) {
+  aceScore = playerScoresStored;
+} else {
+  localStorage.setItem("aceScore", 0);
+  aceScore = 0;
 }
+highscore.textContent = aceScore;

@@ -45,3 +45,9 @@ To Do
 Local storage - Highscore
 
 Darkmode
+
+Under each deck show how many cards are in each deck.
+
+speed up card swapping
+
+Game details

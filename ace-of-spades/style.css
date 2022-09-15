@@ -20,7 +20,7 @@ header {
 
 .top {
   margin-top: 2rem;
-  margin-bottom: 2rem;
+  margin-bottom: 0.5rem;
 }
 
 #timer {
@@ -46,6 +46,11 @@ header {
   background-color: var(--card);
   font-size: 1rem;
   padding: 8px;
+}
+
+#reset:hover {
+  background-color: var(--text);
+  color: var(--background);
 }
 .btn-container {
   display: flex;
@@ -93,7 +98,25 @@ header {
 }
 
 .bottom {
-  margin-top: 2rem;
+  margin-top: 1rem;
+}
+
+.overview-container {
+  margin: 0 auto;
+  padding: 0 auto;
+  max-width: 1100px;
+  text-align: center;
+}
+
+.text {
+  color: var(--text);
+  margin-bottom: 10px;
+}
+
+.text h1 {
+  margin-bottom: 10px;
+  font-size: 2rem;
+  padding: 5px;
 }
 
 .hide {
@@ -175,7 +198,7 @@ header {
   width: 100%;
   height: 100%;
   text-align: center;
-  transition: transform 0.8s;
+  transition: transform 0.3s;
   transform-style: preserve-3d;
 }
 
@@ -215,6 +238,20 @@ header {
   margin-top: 150px;
 }
 
+.cardLeft {
+  font-size: 1.2rem;
+  color: var(--text);
+  position: relative;
+  left: 20px;
+}
+
+.cardRight {
+  font-size: 1.2rem;
+  color: var(--text);
+  position: relative;
+  left: 20px;
+}
+
 #lower {
   cursor: pointer;
   color: var(--background);
@@ -249,15 +286,23 @@ footer {
   position: fixed;
   bottom: 0;
   width: 100%;
-  height: 60px;
+  height: 40px;
 }
 
-.highscore span {
+.highscore {
   font-size: 1.2rem;
   color: var(--text);
 }
 
 @media only screen and (max-width: 840px) {
+  .text h1 {
+    font-size: 1.4rem;
+  }
+
+  .text p {
+    font-size: 1rem;
+  }
+
   .card-container {
     height: 400px;
     flex-wrap: wrap;
@@ -265,7 +310,6 @@ footer {
 
   #higher {
     font-size: 1rem;
-    padding: 4px;
   }
 
   .btn-container {
@@ -282,7 +326,6 @@ footer {
   }
   #lower {
     font-size: 1rem;
-    padding: 4px;
   }
 
   .start {
@@ -316,6 +359,17 @@ footer {
     height: 450px;
   }
 
+  .bottom {
+    margin-top: 3rem;
+  }
+
+  .cardLeft {
+    display: none;
+  }
+  .cardRight {
+    display: none;
+  }
+
   .button-container {
     margin-top: 10px;
     position: relative;
@@ -339,5 +393,9 @@ footer {
 
   .highscore span {
     font-size: 0.9rem;
+  }
+
+  footer {
+    height: 30px;
   }
 }
