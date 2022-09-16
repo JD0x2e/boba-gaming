@@ -51,7 +51,8 @@ img {
 Buttons
 ******************************************/
 
-button {
+.hide-btn,
+.tick-btn {
   text-transform: capitalize;
   font-family: inherit;
   font-size: 1rem;
@@ -67,12 +68,14 @@ button {
   cursor: pointer;
 }
 
-button:hover {
+.hide-btn:hover,
+.tick-btn:hover {
   border-color: var(--o);
 }
 
 #question-btn,
-#guess-btn {
+#guess-btn,
+#reset-btn {
   font-family: inherit;
   font-size: 1rem;
   font-weight: 400;
@@ -83,6 +86,16 @@ button:hover {
   border-radius: 2px;
   padding: 0.8em;
   margin-bottom: 1em;
+}
+
+.reset-btn {
+  margin: 0 auto;
+  margin-top: 1em;
+  display: none;
+}
+
+.reset-btn-visible {
+  display: block;
 }
 
 /***************************************** 
@@ -119,10 +132,15 @@ Typography
   opacity: 0;
 }
 
+#response {
+  opacity: 0;
+}
+
 .opacity {
   animation-name: show;
   animation-duration: 6s;
   animation-iteration-count: 1;
+  animation-fill-mode: forwards;
 }
 
 @keyframes show {
@@ -136,7 +154,7 @@ Typography
     opacity: 1;
   }
   100% {
-    opacity: 0;
+    opacity: 1;
   }
 }
 
@@ -152,6 +170,7 @@ header {
 main {
   background-color: var(--blk);
   min-height: 200px;
+  text-align: center;
 }
 
 .main-container {
@@ -212,13 +231,18 @@ select {
   margin-bottom: 1em;
 }
 
+.display-block {
+  display: block;
+}
+
+.display-none {
+  display: none;
+}
+
 /***************************************** 
 Media Queries
 ******************************************/
 @media (min-width: 500px) {
-  button {
-    margin: 0 1em;
-  }
   #btn-label {
     font-size: 1rem;
   }
