@@ -7,11 +7,29 @@
   font-family: "Poppins", sans-serif;
 }
 
+h2 {
+  text-decoration: underline;
+  color: white;
+  justify-content: center;
+  padding: 2rem;
+  width: 35%;
+  text-align: center;
+}
+
+p {
+  font-size: 1.5rem;
+}
+
+.lives {
+  width: 35%;
+  text-align: left;
+}
+
 .rules {
   display: flex;
   justify-content: center;
   text-align: center;
-  grid-column: 2/5;
+  grid-column: 1/5;
   color: white;
 }
 
@@ -20,14 +38,25 @@
   background-color: rgb(27, 27, 27);
 }
 
+.heading-container {
+  margin: 0 auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  width: 85%;
+}
+
+.score {
+  padding-left: 2rem;
+  width: 35%;
+  text-align: right;
+}
+
 .button-container {
-  /* background-color: rgb(44, 44, 44); */
-  /* padding-bottom: 1.7rem; */
-  padding: 2rem;
-  width: 50%;
   height: 30%;
   display: flex;
-  justify-content: space-between;
+  justify-content: space-evenly;
   align-items: center;
   color: white;
   margin: 0 auto;
@@ -36,7 +65,6 @@
 .button {
   padding: 0.5em;
   font-size: 1rem;
-  width: 19%;
   border-radius: 10px;
   border: black solid 1px;
   background-color: #505050ff;
@@ -45,24 +73,12 @@
   cursor: pointer;
 }
 
-h2 {
-  text-decoration: underline;
-  color: white;
-  text-align: center;
-  justify-content: center;
-  padding: 2rem;
-}
-
-p {
-  font-size: 1.5rem;
-}
-
 .cards {
   display: grid;
   padding: 2rem;
-  width: 65%;
+  width: 95%;
   margin: 0 auto;
-  grid-template-columns: repeat(5, 1fr);
+  grid-template-columns: repeat(2, 1fr);
   grid-gap: 1.5em;
   background-color: rgb(80, 80, 80);
   border: double 7.5px;
@@ -78,8 +94,7 @@ p {
 }
 
 .flipbox img {
-  width: 130px;
-  max-height: 120px;
+  width: 70%;
 }
 
 .flipbox {
@@ -133,6 +148,9 @@ p {
   background-image: linear-gradient(to bottom right, #5f7161, rgb(196, 196, 0));
   color: black;
   border-radius: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 /* Style the back side */
@@ -169,5 +187,69 @@ p {
   0%,
   100% {
     transform: rotateY(0deg);
+  }
+}
+
+@media only screen and (min-width: 375px) {
+  .cards {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .flipbox {
+    width: 130px;
+  }
+  .button-container {
+    width: 100%;
+    max-width: 100%;
+    padding: 1rem;
+  }
+  .button-container p {
+    font-size: 1.25rem;
+  }
+  .button {
+    width: 19%;
+  }
+  .heading-container {
+    max-width: 85%;
+    height: 100px;
+  }
+}
+
+@media only screen and (max-width: 870px) {
+  .heading-container {
+    height: 130px;
+  }
+}
+
+@media only screen and (min-width: 800px) {
+  .cards {
+    grid-template-columns: repeat(3, 1fr);
+    width: 80%;
+  }
+  .rules {
+    grid-column: 1/5;
+  }
+  .button-container {
+    width: 80%;
+  }
+}
+
+@media only screen and (min-width: 1000px) {
+  .cards {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
+@media only screen and (min-width: 1150px) {
+  .cards {
+    grid-template-columns: repeat(5, 1fr);
+  }
+  .flipbox {
+    width: 160px;
+  }
+  .rules {
+    grid-column: 2/5;
+  }
+  .button {
+    width: 15%;
   }
 }
