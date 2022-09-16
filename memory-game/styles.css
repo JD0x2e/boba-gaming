@@ -214,6 +214,21 @@ p {
   }
 }
 
+@media only screen and (max-width: 460px) {
+  .lives {
+    font-size: 1.2em;
+  }
+  .score {
+    font-size: 1.2em;
+    display: flex;
+    flex-wrap: nowrap;
+  }
+  h2 {
+    font-size: 1.2em;
+    margin-right: 10px;
+  }
+}
+
 @media only screen and (max-width: 870px) {
   .heading-container {
     height: 130px;
