@@ -9,16 +9,17 @@ if (scoresFromLocalStorage) {
 
 const scoreContainer = document.getElementById("score-container");
 
+let headingWin = document.createElement("h5");
+
 function renderGWPlayerScore() {
   let guessWhoWin = 0;
   let guessWhoTotal = 0;
-  for (i = 0; i < guessWhoScore.length; i++) {
+  for (let i = 0; i < guessWhoScore.length; i++) {
     guessWhoTotal++;
     if (guessWhoScore[i] === "win") {
       guessWhoWin++;
     }
   }
-  let headingWin = document.createElement("h5");
   headingWin.style.lineHeight = 1.6;
   headingWin.style.color = "rgb(250, 165, 73)";
   headingWin.innerHTML = `Your Score <br /> ${guessWhoWin} / ${guessWhoTotal}`;
@@ -30,6 +31,9 @@ const question = document.getElementById("clue");
 const answerHeading = document.getElementById("answer-heading");
 const selectGuess = document.getElementById("guess");
 const guessResponse = document.getElementById("guessResponse");
+const responseText = document.getElementById("response");
+const resetBtn = document.getElementById("reset-btn");
+resetBtn.addEventListener("click", resetGame);
 
 const maxGuessesAllowed = 3;
 let guesses = 0;
@@ -65,6 +69,7 @@ Character.prototype.render = function () {
   buttonX.classList.add("hide-btn");
   buttonX.textContent = "x";
   let buttonTick = document.createElement("button");
+  buttonTick.classList.add("tick-btn");
   buttonTick.innerHTML = "&#10003";
   characterContainer.appendChild(imgContainer);
   imgContainer.appendChild(image);
@@ -252,41 +257,41 @@ function getGuessWhoCharacter() {
   return Math.floor(Math.random() * Character.allCharactersArray.length);
 }
 
-const guessWho = getGuessWhoCharacter();
+let guessWho = getGuessWhoCharacter();
 
-const qBtn = document.getElementById("question-btn");
-qBtn.addEventListener("click", renderAnswer);
+document.getElementById("question-btn").addEventListener("click", renderAnswer);
 
 function renderAnswer() {
   if (question.value === "") {
     alert("Please select a question to ask!");
   } else if (question.value === "hair-color") {
-    answerHeading.textContent = `The character has ${Character.allCharactersArray[guessWho].hair} hair.`;
+    responseText.textContent = `The character has ${Character.allCharactersArray[guessWho].hair} hair.`;
   } else if (question.value === "headwear") {
     if (Character.allCharactersArray[guessWho].headWear) {
-      answerHeading.textContent = `The character is wearing at least one item`;
+      responseText.textContent = `The character is wearing at least one item`;
     } else {
-      answerHeading.textContent = `The character is not wearing any items`;
+      responseText.textContent = `The character is not wearing any items`;
     }
   } else if (question.value === "skin") {
-    answerHeading.textContent = `The character has ${Character.allCharactersArray[guessWho].skin} skin`;
+    responseText.textContent = `The character has ${Character.allCharactersArray[guessWho].skin} skin`;
   } else if (question.value === "nose") {
-    answerHeading.textContent = `The character has a ${Character.allCharactersArray[guessWho].nose} nose`;
+    responseText.textContent = `The character has a ${Character.allCharactersArray[guessWho].nose} nose`;
   } else if (question.value === "eyes") {
-    answerHeading.textContent = `The character has ${Character.allCharactersArray[guessWho].eyes} eyes`;
+    responseText.textContent = `The character has ${Character.allCharactersArray[guessWho].eyes} eyes`;
   } else if (question.value === "facial-hair") {
     if (Character.allCharactersArray[guessWho].facialHair) {
-      answerHeading.textContent = `${Character.allCharactersArray[guessWho].facialHair}, the character does have facial hair`;
+      responseText.textContent = `${Character.allCharactersArray[guessWho].facialHair}, the character does have facial hair`;
     } else {
-      answerHeading.textContent = `${Character.allCharactersArray[guessWho].facialHair}, the character does not have facial hair`;
+      responseText.textContent = `${Character.allCharactersArray[guessWho].facialHair}, the character does not have facial hair`;
     }
   } else if (question.value === "lips") {
-    answerHeading.textContent = `The character has ${Character.allCharactersArray[guessWho].lips} lips`;
+    responseText.textContent = `The character has ${Character.allCharactersArray[guessWho].lips} lips`;
   } else if (question.value === "emotion") {
-    answerHeading.textContent = `The character is feeling ${Character.allCharactersArray[guessWho].emotion}`;
+    responseText.textContent = `The character is feeling ${Character.allCharactersArray[guessWho].emotion}`;
   }
-  guessResponse.classList.remove("opacity");
-  answerHeading.classList.add("opacity");
+  selectGuess.value = "";
+  triggerOpacity();
+  hideQuestionContainer();
 }
 
 let guessOption;
@@ -308,14 +313,20 @@ function renderGuessInput() {
 
 document.getElementById("guess-btn").addEventListener("click", renderResponse);
 
+const questionOne = document.getElementById("optionOne");
+
 function renderResponse() {
   guesses++;
   if (guesses === maxGuessesAllowed) {
     for (let i = 0; i < Character.allCharactersArray.length; i++) {
       if (selectGuess.value === Character.allCharactersArray[guessWho].name) {
-        guessResponse.textContent = `Congratulations, you have guessed the who of guess who!`;
+        responseText.textContent = `Congratulations, you have guessed the who of guess who!`;
+        resetBtn.classList.add("reset-btn-visible");
+        // resetGame();
       } else {
-        guessResponse.textContent = `Bad luck, that was you last attempt! The who of guess who was ${Character.allCharactersArray[guessWho].name}`;
+        responseText.textContent = `Bad luck, that was you last attempt! The who of guess who was ${Character.allCharactersArray[guessWho].name}`;
+        resetBtn.classList.add("reset-btn-visible");
+        // resetGame();
       }
     }
     if (selectGuess.value === Character.allCharactersArray[guessWho].name) {
@@ -328,9 +339,11 @@ function renderResponse() {
   } else {
     for (let i = 0; i < Character.allCharactersArray.length; i++) {
       if (selectGuess.value === Character.allCharactersArray[guessWho].name) {
-        guessResponse.textContent = `Congratulations, you have guessed the who of guess who!`;
+        responseText.textContent = `Congratulations, you have guessed the who of guess who!`;
+        resetBtn.classList.add("reset-btn-visible");
+        // resetGame();
       } else {
-        guessResponse.textContent = `Bad luck, ask another question to be given another clue!`;
+        responseText.textContent = `Bad luck, ask another question to be given another clue!`;
       }
     }
     if (selectGuess.value === Character.allCharactersArray[guessWho].name) {
@@ -338,9 +351,18 @@ function renderResponse() {
       localStorage.setItem("guessWhoScore", JSON.stringify(guessWhoScore));
     }
   }
+  question.value = "";
+  // guessResponse.classList.add("opacity");
+  triggerOpacity();
+  hideGuessContainer();
+}
 
-  guessResponse.classList.add("opacity");
-  answerHeading.classList.remove("opacity");
+function triggerOpacity() {
+  responseText.classList.remove("opacity");
+  setTimeout(() => {
+    responseText.classList.add("opacity");
+  }, 1000);
+  hideGuessContainer();
 }
 
 const imgChar = document.getElementsByClassName("img-char");
@@ -379,6 +401,28 @@ function showCharacter(event) {
       imgC.src = Character.allCharactersArray[i].src;
     }
   }
+}
+
+function hideQuestionContainer() {
+  document.getElementById("questionContainer").classList.add("display-none");
+  document.getElementById("guess-container").classList.remove("display-none");
+}
+
+function hideGuessContainer() {
+  document.getElementById("questionContainer").classList.remove("display-none");
+  document.getElementById("guess-container").classList.add("display-none");
+}
+
+resetBtn.addEventListener("click", resetGame());
+
+function resetGame() {
+  headingWin.textContent = "";
+  renderGWPlayerScore();
+  selectGuess.value = "";
+  question.value = "";
+  guesses = 0;
+  guessWho = getGuessWhoCharacter();
+  resetBtn.classList.remove("reset-btn-visible");
 }
 
 renderGuessInput();
