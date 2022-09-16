@@ -14,9 +14,12 @@
   </head>
   <body>
     <div class="container">
-      <h2>Boba Memory Game</h2>
+      <div class="heading-container">
+        <p class="lives">Lives: <span id="lives">5</span></p>
+        <h2>Boba Memory Game</h2>
+        <p class="score">Score: <span id="score"></span></p>
+      </div>
       <div class="button-container">
-        <p>Lives: <span id="lives">5</span></p>
         <button class="button" id="start-crypto" type="button">
           Start Level 1
         </button>
@@ -31,6 +34,7 @@
           Reset
         </button>
       </div>
+      <br />
       <div class="cards" id="cards">
         <div class="rules">
           Rules:<br /><br />
