@@ -9,6 +9,7 @@ let houseDeckCount = document.getElementById("houseDeckCount");
 let playerDeckCount = document.getElementById("playerDeckCount");
 let highScore = document.getElementById("highScore");
 let correct = document.getElementById("correct");
+let timeName = document.getElementById("timeName");
 
 let cardNum = [2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14];
 let suit = ["♠", "♦️", "♥️", "♣️"];
@@ -37,6 +38,9 @@ const newDeck = () => {
       console.log("newDeck");
     }
   }
+
+  shuffle(Card.houseDeck);
+  moveTopCard();
 };
 
 const displayDeckCount = () => {
@@ -100,7 +104,7 @@ const moveTopCard = () => {
   console.log("MovetopCard");
 };
 
-shuffle = (array) => {
+const shuffle = (array) => {
   array.sort(() => Math.random() - 0.5);
 };
 
@@ -115,29 +119,34 @@ const timerTickDown = () => {
   if (timerCount === 0) {
     alert("You have run out of time. Your score is " + score);
     timer.textContent = "Game over";
+    timeName.classList.add("timeNameRemove");
+    setLocalStorage();
     buttonStart.className = "start";
     clearInterval(timeInterval);
-    setInterval(location.reload, 500);
+    setTimeout(() => {
+      location.reload();
+    }, 1000);
   }
 };
 
 function guessCard(highLowGuess) {
   let correctCard = false;
-  const houseCard = Card.houseDeck[Card.houseDeck.length - 1];
-  const playerCard = playerDeck[playerDeck.length - 1];
+  let houseCard = Card.houseDeck[Card.houseDeck.length - 1].value;
+  let playerCard = playerDeck[playerDeck.length - 1].value;
 
   leftCard.classList.add("flipped");
   console.log("highLowGuess", highLowGuess);
 
-  if (highLowGuess === "higher" && playerCard <= houseCard) {
+  if (highLowGuess === "higher" && playerCard >= houseCard) {
     score++;
     correctCard = true;
     playerScore.textContent = score;
     correct.textContent = "Correct"; // Printing to page
     console.log("High Correct");
   }
-  if (highLowGuess === "lower" && playerCard >= houseCard) {
+  if (highLowGuess === "lower" && playerCard <= houseCard) {
     score++;
+    correctCard = true;
     playerScore.textContent = score;
     correct.textContent = "Correct";
     console.log("Lower Corret");
@@ -167,11 +176,11 @@ function guessCard(highLowGuess) {
 }
 
 function startGame() {
-  timerCount = 30;
+  timerCount = 10;
   console.log("start Game");
   newDeck();
   startTimer();
-  moveTopCard();
+  // moveTopCard();
   showTopCard();
   buttonStart.className = "hide";
   rightCard.classList.add("flipped");
