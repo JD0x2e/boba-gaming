@@ -319,11 +319,19 @@ footer div {
   }
   .button-container {
     width: 300;
-    margin: 0 auto;
+    margin: 0px auto;
     padding: 0px auto;
     border: 1px solid #2d2d2d;
     display: grid;
     justify-content: center;
+    position: relative;
+    top: 3rem;
+  }
+
+  .score-highscore {
+    top: 1.5rem;
+
+    position: relative;
   }
 
   #newCard1 {
