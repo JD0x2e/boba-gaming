@@ -176,7 +176,7 @@ function guessCard(highLowGuess) {
 }
 
 function startGame() {
-  timerCount = 10;
+  timerCount = 30;
   console.log("start Game");
   newDeck();
   startTimer();
