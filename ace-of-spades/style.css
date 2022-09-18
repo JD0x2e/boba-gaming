@@ -13,8 +13,97 @@ body {
   background-color: var(--background);
 }
 
+@media only screen and (min-width: 1001px) and (max-width: 2000px) {
+  .navlist ul {
+    display: flex;
+  }
+  .hidden {
+    display: none;
+  }
+}
+
+@media (max-width: 1000px) {
+  #menu__toggle {
+    opacity: 0;
+  }
+  #menu__toggle:checked + .menu__btn > span {
+    transform: rotate(45deg);
+  }
+  #menu__toggle:checked + .menu__btn > span::before {
+    top: 0;
+    transform: rotate(0deg);
+  }
+  #menu__toggle:checked + .menu__btn > span::after {
+    top: 0;
+    transform: rotate(90deg);
+  }
+  #menu__toggle:checked ~ .menu__box {
+    right: 0 !important;
+  }
+  .menu__btn {
+    position: fixed;
+    top: 25px;
+    right: 20px;
+    width: 26px;
+    height: 20px;
+    cursor: pointer;
+    z-index: 1;
+  }
+  .menu__btn > span,
+  .menu__btn > span::before,
+  .menu__btn > span::after {
+    display: block;
+    position: absolute;
+    width: 100%;
+    height: 4px;
+    background-color: var(--border);
+    transition-duration: 0.25s;
+  }
+  .menu__btn > span::before {
+    content: "";
+    top: -8px;
+  }
+  .menu__btn > span::after {
+    content: "";
+    top: 8px;
+  }
+  .menu__box {
+    z-index: 1;
+    display: inline-block;
+    position: fixed;
+    top: 60px;
+    right: -120%;
+    width: 175px;
+    height: 35%;
+    margin: 0;
+    padding: 10px 0;
+    list-style: none;
+    border-top-left-radius: 6px;
+    border-bottom-left-radius: 6px;
+    background-color: var(--border);
+    box-shadow: 2px 2px 6px rgb(0 0 0 / 40%);
+    transition-duration: 0.25s;
+    background-image: url(./img/logoheader.png);
+    background-size: 58%;
+    background-repeat: no-repeat;
+    background-position: bottom;
+  }
+  .menu__item {
+    display: block;
+    padding: 12px 24px;
+    color: var(--text);
+    font-family: "Roboto", sans-serif;
+    font-size: 1rem;
+    font-weight: 600;
+    text-decoration: none;
+    transition-duration: 0.25s;
+  }
+  .menu__item:hover {
+    background-color: var(--border);
+  }
+}
+
 header {
-  background-color: rgba(255, 255, 255, 0.3);
   width: 100%;
 }
 
@@ -32,14 +121,11 @@ header {
   width: 120px;
 }
 
-.navList ul {
-  display: flex;
-}
-.navList li {
+.navlist li {
   list-style: none;
 }
 
-.navList a {
+.navlist a {
   color: var(--text);
   padding: 15px;
   text-decoration: none;
@@ -90,7 +176,7 @@ h1 {
 }
 
 .card-container {
-  border: 1px solid #1e1e1e;
+  /* border: 1px solid #1e1e1e; */
   display: flex;
   justify-content: space-around;
   width: 100%;
@@ -104,7 +190,7 @@ h1 {
 /* Flipped Cards */
 
 .container {
-  border: 1px solid #1e1e1e;
+  border: 1px solid var(--border);
   margin: 10px 1em;
   display: flex;
   /* flex-wrap: wrap; */
@@ -149,7 +235,7 @@ h1 {
 }
 
 .front {
-  border: 2px solid #b7d0f1;
+  border: 2px solid var(--border);
   background-color: #505050;
   display: flex;
 }
@@ -198,7 +284,7 @@ h2 {
   width: 300px;
   margin: 20px auto;
   padding: 0 auto;
-  border: 1px solid #2d2d2d;
+  border: 1px solid var(--border);
   display: grid;
   justify-content: center;
 }
@@ -215,7 +301,7 @@ button {
 }
 .start {
   box-shadow: inset 0px 1px 3px 0px #1c1b18;
-  background: linear-gradient(to bottom, #eae0c2 5%, #ccc2a6 100%);
+  background: linear-gradient(to bottom, #b7d0f1 5%, #b7d0f1 100%);
   background-color: #eae0c2;
   border: 3px solid #333029;
   display: inline-block;
@@ -229,7 +315,7 @@ button {
   text-shadow: 0px -1px 0px #ffffff;
 }
 .start:hover {
-  background: linear-gradient(to bottom, #ccc2a6 5%, #eae0c2 100%);
+  background: linear-gradient(to bottom, #faa54a 5%, #faa54a 100%);
   background-color: #ccc2a6;
 }
 .start:active {
@@ -243,7 +329,7 @@ button {
 
 .reset {
   box-shadow: inset 0px 1px 3px 0px #1c1b18;
-  background: linear-gradient(to bottom, #eae0c2 5%, #ccc2a6 100%);
+  background: linear-gradient(to bottom, #b7d0f1 5%, #b7d0f1 100%);
   background-color: #eae0c2;
   border: 3px solid #333029;
   display: inline-block;
@@ -257,7 +343,8 @@ button {
   text-shadow: 0px -1px 0px #ffffff;
 }
 .reset:hover {
-  background: linear-gradient(to bottom, #ccc2a6 5%, #eae0c2 100%);
+  background: linear-gradient(to bottom, #faa54a 5%, #faa54a 100%);
+  /* background: linear-gradient(to bottom, #ccc2a6 5%, #eae0c2 100%); */
   background-color: #ccc2a6;
 }
 .reset:active {
@@ -268,7 +355,8 @@ button {
 .higher {
   margin-right: 15px;
   box-shadow: inset 0px 1px 3px 0px #1c1b18;
-  background: linear-gradient(to bottom, #eae0c2 5%, #ccc2a6 100%);
+  /* background: linear-gradient(to bottom, #eae0c2 5%, #ccc2a6 100%); */
+  background: linear-gradient(to bottom, #b7d0f1 5%, #b7d0f1 100%);
   background-color: #eae0c2;
   border-radius: 42px;
   border: 3px solid #333029;
@@ -282,7 +370,7 @@ button {
   text-shadow: 0px -1px 0px #ffffff;
 }
 .higher:hover {
-  background: linear-gradient(to bottom, #ccc2a6 5%, #eae0c2 100%);
+  background: linear-gradient(to bottom, #faa54a 5%, #faa54a 100%);
   background-color: #ccc2a6;
 }
 .higher:active {
@@ -293,7 +381,7 @@ button {
 .lower {
   margin-left: 15px;
   box-shadow: inset 0px 1px 3px 0px #1c1b18;
-  background: linear-gradient(to bottom, #eae0c2 5%, #ccc2a6 100%);
+  background: linear-gradient(to bottom, #b7d0f1 5%, #b7d0f1 100%);
   background-color: #eae0c2;
   border-radius: 42px;
   border: 3px solid #333029;
@@ -307,7 +395,7 @@ button {
   text-shadow: 0px -1px 0px #ffffff;
 }
 .lower:hover {
-  background: linear-gradient(to bottom, #ccc2a6 5%, #eae0c2 100%);
+  background: linear-gradient(to bottom, #faa54a 5%, #faa54a 100%);
   background-color: #ccc2a6;
 }
 .lower:active {
@@ -320,7 +408,7 @@ img {
 }
 
 footer {
-  background-color: rgba(255, 255, 255, 0.3);
+  /* background-color: rgba(255, 255, 255, 0.3); */
   position: fixed;
   bottom: 0;
   width: 100%;
@@ -337,9 +425,6 @@ footer div {
   .header-container {
     justify-content: center;
   }
-  .logo {
-    display: none;
-  }
   h1 {
     font-size: 1.3rem;
   }
@@ -350,7 +435,7 @@ footer div {
     width: 300;
     margin: 0px auto;
     padding: 0px auto;
-    border: 1px solid #2d2d2d;
+
     display: grid;
     justify-content: center;
     position: relative;
