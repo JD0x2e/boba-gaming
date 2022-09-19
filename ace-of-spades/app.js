@@ -158,7 +158,7 @@ function guessCard(highLowGuess) {
   if (correctCard === false) {
     lives--;
     liveCount.textContent = lives;
-    correct.textContent = "wrong";
+    correct.textContent = "Wrong";
     console.log("wrong");
   }
   if (lives === 0) {
