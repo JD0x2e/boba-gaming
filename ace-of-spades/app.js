@@ -38,7 +38,6 @@ const newDeck = () => {
       console.log("newDeck");
     }
   }
-
   shuffle(Card.houseDeck);
   moveTopCard();
 };
@@ -106,6 +105,7 @@ const moveTopCard = () => {
 
 const shuffle = (array) => {
   array.sort(() => Math.random() - 0.5);
+  console.log("shuffle");
 };
 
 const startTimer = () => {
@@ -131,20 +131,23 @@ const timerTickDown = () => {
 
 function guessCard(highLowGuess) {
   let correctCard = false;
-  let houseCard = Card.houseDeck[Card.houseDeck.length - 1].value;
   let playerCard = playerDeck[playerDeck.length - 1].value;
+  let houseCard = Card.houseDeck[Card.houseDeck.length - 1].value;
 
   leftCard.classList.add("flipped");
-  console.log("highLowGuess", highLowGuess);
 
-  if (highLowGuess === "higher" && playerCard >= houseCard) {
+  console.log("highLowGuess", highLowGuess);
+  console.log("playerCard", playerCard);
+  console.log("housecard", houseCard);
+
+  if (highLowGuess === "higher" && playerCard <= houseCard) {
     score++;
     correctCard = true;
     playerScore.textContent = score;
     correct.textContent = "Correct"; // Printing to page
     console.log("High Correct");
   }
-  if (highLowGuess === "lower" && playerCard <= houseCard) {
+  if (highLowGuess === "lower" && playerCard >= houseCard) {
     score++;
     correctCard = true;
     playerScore.textContent = score;
@@ -180,7 +183,6 @@ function startGame() {
   console.log("start Game");
   newDeck();
   startTimer();
-  // moveTopCard();
   showTopCard();
   buttonStart.className = "hide";
   rightCard.classList.add("flipped");
