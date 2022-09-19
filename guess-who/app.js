@@ -265,10 +265,10 @@ const characterDetails = [
     src: "/images/herman.png",
     shadow: "/images/herman-shadow.png",
     emotion: "happy",
-    skin: "light",
+    skin: "dark",
     hair: "ginger",
     nose: "big",
-    eyes: "blue",
+    eyes: "brown",
     lips: "big",
     facialHair: false,
     headWear: false,
@@ -280,8 +280,8 @@ const characterDetails = [
     emotion: "happy",
     skin: "light",
     hair: "blonde",
-    nose: "big",
-    eyes: "blue",
+    nose: "small",
+    eyes: "brown",
     lips: "small",
     facialHair: false,
     headWear: true,
@@ -294,8 +294,8 @@ const characterDetails = [
     skin: "light",
     hair: "brown",
     nose: "small",
-    eyes: "brown",
-    lips: "big",
+    eyes: "blue",
+    lips: "lips",
     facialHair: false,
     headWear: true,
   },
@@ -320,7 +320,7 @@ const characterDetails = [
     skin: "light",
     hair: "grey",
     nose: "small",
-    eyes: "brown",
+    eyes: "blue",
     lips: "small",
     facialHair: false,
     headWear: false,
@@ -346,23 +346,62 @@ const characterDetails = [
     skin: "dark",
     hair: "brown",
     nose: "small",
-    eyes: "brown",
+    eyes: "blue",
     lips: "big",
     facialHair: true,
     headWear: false,
   },
   {
-    name: "claire",
-    src: "/images/claire.png",
-    shadow: "/images/claire-shadow.png",
+    name: "richard",
+    src: "/images/richard.png",
+    shadow: "/images/richard-shadow.png",
     emotion: "happy",
     skin: "light",
-    hair: "ginger",
+    hair: "brown",
+    nose: "small",
+    eyes: "brown",
+    lips: "small",
+    facialHair: true,
+    headWear: false,
+  },
+  {
+    name: "sam",
+    src: "/images/sam.png",
+    shadow: "/images/sam-shadow.png",
+    emotion: "happy",
+    skin: "light",
+    hair: "grey",
+    nose: "big",
+    eyes: "blue",
+    lips: "small",
+    facialHair: false,
+    headWear: true,
+  },
+  {
+    name: "susan",
+    src: "/images/susan.png",
+    shadow: "/images/susan-shadow.png",
+    emotion: "happy",
+    skin: "light",
+    hair: "grey",
     nose: "small",
     eyes: "blue",
     lips: "big",
     facialHair: false,
-    headWear: true,
+    headWear: false,
+  },
+  {
+    name: "tom",
+    src: "/images/tom.png",
+    shadow: "/images/tom-shadow.png",
+    emotion: "happy",
+    skin: "light",
+    hair: "brown",
+    nose: "small",
+    eyes: "blue",
+    lips: "small",
+    facialHair: false,
+    headWear: false,
   },
 ];
 
@@ -499,26 +538,33 @@ function renderName() {
   }
 }
 
-function hideCharacter(event) {
-  let hideButton = event.target.id;
-  for (let i = 0; i < Character.allCharactersArray.length; i++) {
-    let imgC = imgChar[i];
-    if (hideButton === Character.allCharactersArray[i].hide) {
-      imgC.src = Character.allCharactersArray[i].shadow;
-      break;
-    }
-  }
-}
+// function hideCharacter(event) {
+//   let hideButton = event.target.id;
+//   for (let i = 0; i < Character.allCharactersArray.length; i++) {
+//     let imgC = imgChar[i];
+//     if (hideButton === Character.allCharactersArray[i].hide) {
+//       imgC.src = Character.allCharactersArray[i].shadow;
+//       break;
+//     }
+//   }
+// }
 
-function showCharacter(event) {
-  let showButton = event.target.id;
-  for (let i = 0; i < Character.allCharactersArray.length; i++) {
-    let imgC = imgChar[i];
-    if (showButton === Character.allCharactersArray[i].show) {
-      imgC.src = Character.allCharactersArray[i].src;
-    }
-  }
-}
+// function showCharacter(event) {
+//   let showButton = event.target.id;
+//   for (let i = 0; i < Character.allCharactersArray.length; i++) {
+//     let imgC = imgChar[i];
+//     if (showButton === Character.allCharactersArray[i].show) {
+//       imgC.src = Character.allCharactersArray[i].src;
+//     }
+//   }
+// }
+
+// function showAllImages() {
+//   for (let i = 0; i < Character.allCharactersArray.length; i++) {
+//     console.log(Character.render.);
+//   }
+// }
+// showAllImages();
 
 function hideQuestionContainer() {
   document.getElementById("questionContainer").classList.add("display-none");
@@ -534,6 +580,7 @@ resetBtn.addEventListener("click", resetGame());
 
 function resetGame() {
   headingWin.textContent = "";
+  responseText.textContent = "";
   renderGWPlayerScore();
   selectGuess.value = "";
   question.value = "";

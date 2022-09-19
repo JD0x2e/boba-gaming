@@ -86,6 +86,7 @@ Buttons
   border-radius: 2px;
   padding: 0.8em;
   margin-bottom: 1em;
+  cursor: pointer;
 }
 
 .reset-btn {
@@ -164,7 +165,17 @@ Layout
 
 header {
   background-color: var(--blk);
-  min-height: 200px;
+  padding: 1em 0;
+}
+
+.header-container {
+  width: 90%;
+  max-width: 1024px;
+  margin: 0 auto;
+}
+
+.logo-container {
+  width: 200px;
 }
 
 main {
