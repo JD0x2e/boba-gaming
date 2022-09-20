@@ -66,7 +66,7 @@ h2 {
 }
 
 .content-container p {
-  margin-right: 5px;
+  /* padding: 5px; */
   font-size: 1.2rem;
   margin-bottom: 10px;
 }
@@ -92,6 +92,7 @@ h3 {
 
 .list-container p {
   margin-right: 5px;
+  /* padding: 5px; */
   color: #f8f8f8;
 }
 .list-container {
@@ -114,6 +115,10 @@ h3 {
   -webkit-border-radius: 0px 110px 0px 110px;
 }
 
+#highscore {
+  color: #f8f8f8;
+}
+
 footer {
   position: fixed;
   bottom: 0;
@@ -134,7 +139,7 @@ footer {
   padding: 0 auto;
   color: var(--text);
   display: flex;
-  justify-content: space-around;
+  justify-content: space-between;
 }
 
 @media only screen and (min-width: 1001px) and (max-width: 2000px) {

@@ -213,10 +213,13 @@ const setLocalStorage = () => {
 };
 
 const playerScoreCard = JSON.parse(localStorage.getItem("acescore"));
+
 if (playerScoreCard) {
   aceScore = playerScoreCard;
 } else {
   localStorage.setItem("acescore", 0);
   aceScore = 0;
+
+  window.localStorage.href = "./index.html";
 }
 highScore.textContent = aceScore;
