@@ -42,7 +42,6 @@ function Card(src, name, id) {
   this.src = src;
   this.name = name;
   this.id = id;
-  // Card.allCars.push(this);
   Card.allCards.push(this);
 }
 // Prototype render function which is creating all the elements and adding classes to them, then appending to the page
@@ -69,7 +68,7 @@ Card.prototype.render = function () {
   flipBoxBack.appendChild(carImg);
 
   let logoImg = document.createElement("img");
-  logoImg.src = "./images/f1/bobagaminglogonobg.png";
+  logoImg.src = "./images/logo-one.svg";
   logoImg.alt = "Boba Gaming Logo";
   flipBoxFront.appendChild(logoImg);
 
@@ -79,7 +78,7 @@ Card.prototype.render = function () {
   // Adding an event listener with the click type
   flipBox.addEventListener("click", function () {
     flipBox.classList.add("clicked");
-    console.log(myObj);
+    // console.log(myObj);
     if (counter === 0) {
       firstCardSelection = myObj.name;
       counter++;
@@ -99,7 +98,7 @@ Card.prototype.render = function () {
         flipBox.classList.add("matched");
         firstCard.classList.add("matched");
         matched++;
-        console.log(matched);
+        // console.log(matched);
         if (matched === 10) {
           alert("You've won the game! Congratulations!");
           setLocalStorage();
