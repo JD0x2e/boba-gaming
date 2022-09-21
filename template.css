@@ -1,0 +1,88 @@
+html {
+  scroll-behavior: smooth;
+  font-family: "Poppins", sans-serif;
+}
+
+:root {
+  --w: #f8f8f8;
+  --blk: #373737ff;
+  --g: #505050ff;
+  --blu: #b7d0f1ff;
+  --o: #f2564fff;
+  --y: #faa549ff;
+}
+
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+*::before {
+  box-sizing: border-box;
+}
+
+*::after {
+  box-sizing: border-box;
+}
+
+body {
+  min-width: 320px;
+  font-size: 1rem;
+  font-weight: 400;
+  letter-spacing: 0.01em;
+  line-height: 1.6;
+  color: var(--blk);
+}
+
+/***********************  
+General Element Styles
+************************/
+
+/* In here you add elements like h1, h2 ect or li, or a or p. This is for your general elements */
+
+/***********************  
+Images
+************************/
+
+/* in here you add any styling for images. Note I would Always start with the following: */
+img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+/***********************  
+Buttons
+************************/
+
+/* in here you add any styling for buttons */
+
+/***********************  
+Links
+************************/
+
+/* in here you add any styling for links */
+
+/***********************  
+Typography
+************************/
+
+/* in here you add any styling for ids or classes related to typography elements. 
+EXAMPLE - h1 with class="hero-heading"
+*/
+
+/***********************  
+Layout
+************************/
+
+/* in here you add any styling for ids or classes related to layout elements. 
+EXAMPLE - div with id="header-container"
+*/
+
+/***********************  
+Media Queries
+************************/
+
+/* in here you add your media queries for screen adjustments.
+*/
