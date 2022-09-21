@@ -219,21 +219,21 @@ const setLocalStorage = () => {
   if (aceScore < score) {
     localStorage.setItem("acescore", score);
   }
-  if (gamePlayed < play) {
-    localStorage.setItem("gamePlayed", play);
-  }
+  // if (gamePlayed < play) {
+  //   localStorage.setItem("gamePlayed", play);
+  // }
 };
 
 // const gamePlayCount = JSON.parse(localStorage.getItem("gamePlayed"));
 const playerScoreCard = JSON.parse(localStorage.getItem("acescore"));
 
-if (gamePlayCount) {
-  gamePlayed = gamePlayCount;
-} else {
-  localStorage.setItem("gamePlayed", 0);
-  gamePlayed = 0;
-}
-gameCount.textContent = gamePlayed;
+// if (gamePlayCount) {
+//   gamePlayed = gamePlayCount;
+// } else {
+//   localStorage.setItem("gamePlayed", 0);
+//   gamePlayed = 0;
+// }
+// gameCount.textContent = gamePlayed;
 
 if (playerScoreCard) {
   aceScore = playerScoreCard;
@@ -242,8 +242,3 @@ if (playerScoreCard) {
   aceScore = 0;
 }
 highScore.textContent = aceScore;
-
-// const score = localStorage.getItem("acescore");
-
-// document.getElementById("highscore").textContent = score;
-// console.log(score);

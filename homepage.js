@@ -27,3 +27,10 @@ for (let i = 0; i < gwScore.length; i++) {
 guessWhoGamesWonEl.textContent = guessWhoGamesWon;
 
 // guessWho Local Storage script end
+
+//  ACE OF SPADES
+
+const score = localStorage.getItem("acescore");
+
+document.getElementById("highscore").textContent = score;
+console.log(score);
