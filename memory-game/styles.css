@@ -20,6 +20,11 @@ p {
   font-size: 1.5rem;
 }
 
+img {
+  /* width: 35px; */
+  height: 80%;
+}
+
 .lives {
   width: 35%;
   text-align: left;
@@ -34,7 +39,7 @@ p {
 }
 
 .container {
-  min-height: 100vh;
+  min-height: 115vh;
   background-color: rgb(27, 27, 27);
 }
 
@@ -84,6 +89,7 @@ p {
   border: double 7.5px;
   border-radius: 15px;
   box-shadow: 0px 0px 20px 10px #000000;
+  margin-bottom: 2rem;
 }
 
 .clicked,
@@ -105,10 +111,6 @@ p {
   perspective: 1000px;
   border-radius: 20px;
   margin: 0 auto;
-  /* box-shadow: 5px 5px 15px 5px #ff8080, -9px 5px 15px 5px #ffe488,
-    -7px -5px 15px 5px #8cff85, 12px -5px 15px 5px #80c7ff,
-    12px 10px 15px 7px #e488ff, -10px 10px 15px 7px #ff616b,
-    -10px -7px 27px 1px #8e5cff, -1px 0px 23px 9px rgba(77, 77, 77, 0); */
 }
 
 /* This container is needed to position the front and back side */
@@ -145,7 +147,7 @@ p {
 /* Style the front side (fallback if image is missing) */
 .flip-box-front {
   /* background-color: #5f7161; */
-  background-image: linear-gradient(to bottom right, #5f7161, rgb(196, 196, 0));
+  background-image: linear-gradient(to bottom right, #94b4df, #4276bb);
   color: black;
   border-radius: 20px;
   display: flex;
@@ -174,6 +176,24 @@ p {
 
 .matched {
   background-color: #b7d0f1ff;
+}
+
+header {
+  height: 40px;
+  width: 100%;
+  background-color: rgb(80, 80, 80);
+}
+
+footer {
+  height: 50px;
+  bottom: 0;
+  margin: 0 auto;
+  text-align: center;
+  align-items: center;
+  position: fixed;
+  width: 100%;
+  color: white;
+  background-color: rgb(80, 80, 80);
 }
 
 @keyframes firstflip {
