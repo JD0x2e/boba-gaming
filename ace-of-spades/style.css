@@ -182,7 +182,6 @@ h1 {
 }
 
 .card-container {
-  /* border: 1px solid #1e1e1e; */
   display: flex;
   justify-content: space-around;
   width: 100%;
@@ -425,8 +424,6 @@ footer {
   padding-left: 10px;
   right: 10px;
   color: var(--text);
-}
-.icons {
 }
 
 .footer-list {
