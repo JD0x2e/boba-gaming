@@ -9,12 +9,73 @@
       content="Play the new Cryptocurrency Memory Game on Boba Gaming!"
     />
     <link rel="resetsheet" href="reset.css" />
+    <link rel="stylesheet" href="/header-footer.css" />
     <link rel="stylesheet" href="styles.css" />
     <title>Boba Memory Game</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
   </head>
   <body>
     <div class="container">
-      <header></header>
+      <header>
+        <div class="header-container">
+          <div class="logo-container">
+            <img id="logo-img" src="/images/logoTwo.svg" alt="logo" />
+          </div>
+          <div class="hamburger-menu">
+            <input id="menu-toggle" type="checkbox" />
+            <label class="menu-btn" for="menu-toggle">
+              <span></span>
+            </label>
+            <ul class="menu-box">
+              <li>
+                <a class="menu-item" href="index.html">Home</a>
+              </li>
+              <li>
+                <a class="menu-item" href="./guess-who/index.html">Guess Who</a>
+              </li>
+              <li>
+                <a class="menu-item" href="./ace-of-spades/ace-of-spade.html"
+                  >Ace of Spades</a
+                >
+              </li>
+              <li>
+                <a class="menu-item" href="./memory-game/index.html"
+                  >Memory Game</a
+                >
+              </li>
+            </ul>
+          </div>
+          <div class="nav-container">
+            <ul id="nav-list">
+              <li class="nav-list-item">
+                <a class="nav-list-link" href="./guess-who/index.html"
+                  >Guess Who</a
+                >
+              </li>
+              <li class="nav-list-item">
+                <a
+                  class="nav-list-link"
+                  href="./ace-of-spades/ace-of-spade.html"
+                  >Ace of Spades</a
+                >
+              </li>
+              <li class="nav-list-item">
+                <a
+                  class="nav-list-link"
+                  class="nav-list-link"
+                  href="./memory-game/index.html"
+                  >Memory Game</a
+                >
+              </li>
+            </ul>
+          </div>
+        </div>
+      </header>
       <div class="heading-container">
         <p class="lives">Lives: <span id="lives">5</span></p>
         <div class="logo">

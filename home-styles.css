@@ -57,10 +57,6 @@ img {
   display: block;
 }
 
-#logo-img {
-  width: 160px;
-}
-
 /**********************
 Buttons and Links
 ***********************/
@@ -82,115 +78,10 @@ Buttons and Links
   transform: scale(1.1);
 }
 
-/********************** 
-Hamburger Menu
-***********************/
-
-#menu-toggle {
-  opacity: 0;
-}
-
-#menu-toggle:checked + .menu-btn > span {
-  transform: rotate(45deg);
-}
-
-#menu-toggle:checked + .menu-btn > span::before {
-  top: 0;
-  transform: rotate(0deg);
-}
-
-#menu-toggle:checked + .menu-btn > span::after {
-  top: 0;
-  transform: rotate(90deg);
-}
-
-#menu-toggle:checked ~ .menu-box {
-  right: 0 !important;
-}
-
-.menu-btn {
-  position: fixed;
-  top: 45px;
-  right: 6%;
-  width: 30px;
-  height: 30px;
-  cursor: pointer;
-  z-index: 1;
-}
-
-.menu-btn > span,
-.menu-btn > span::before,
-.menu-btn > span::after {
-  display: block;
-  position: absolute;
-  width: 100%;
-  height: 3px;
-  background-color: var(--y);
-  transition-duration: 0.25s;
-}
-
-.menu-btn > span::before {
-  content: "";
-  top: -12px;
-}
-
-.menu-btn > span::after {
-  content: "";
-  top: 12px;
-}
-
-.menu-box {
-  display: block;
-  position: fixed;
-  top: 0;
-  right: -100%;
-  width: 300px;
-  height: 100%;
-  margin: 0;
-  padding: 104px 0;
-  background-color: var(--g);
-  box-shadow: 2px 2px 6px rgba(0, 0, 0, 0.4);
-  transition-duration: 0.25s;
-}
-
-.menu-item {
-  display: block;
-  padding: 16px 24px;
-  color: var(--y);
-  font-family: inherit;
-  font-size: 1.2rem;
-  font-weight: 700;
-  transition: 0.25s;
-}
-
-.menu-item:hover {
-  background-color: var(--y);
-  color: var(--g);
-}
-
 /**********************
 Typography
 ***********************/
 
-.nav-list-link {
-  font-size: 1rem;
-  font-weight: 700;
-  letter-spacing: 0.01em;
-  color: var(--y);
-  padding: 0.3em 0;
-}
-
-.nav-list-link-active {
-  border-bottom: 2px solid var(--y);
-}
-
-.nav-list-link:hover {
-  color: var(--w);
-}
-
-.nav-list-link-active:hover {
-  color: var(--y);
-}
 .section-heading {
   font-size: 1.5rem;
   font-weight: 700;
@@ -210,31 +101,6 @@ Typography
 /**********************
 Layout
 ***********************/
-
-.header-container {
-  width: 90%;
-  max-width: 1024px;
-  margin: 0 auto;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
-
-.logo-container {
-  margin: 1em 0;
-}
-
-.nav-container {
-  display: none;
-}
-
-#nav-list {
-  display: flex;
-}
-
-.nav-list-item {
-  margin-left: 2em;
-}
 
 .main-container {
   width: 90%;
@@ -296,15 +162,5 @@ Media Queries
 
   .video-container {
     width: 38%;
-  }
-}
-
-@media (min-width: 900px) {
-  .hamburger-menu {
-    display: none;
-  }
-
-  .nav-container {
-    display: block;
   }
 }
