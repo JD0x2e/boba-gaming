@@ -589,6 +589,10 @@ function resetGame() {
   resetBtn.classList.remove("reset-btn-visible");
 }
 
+// home page script
+
+console.log("hello");
+
 renderGuessInput();
 renderCharacter();
 renderName();
