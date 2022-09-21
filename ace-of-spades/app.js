@@ -10,10 +10,13 @@ let playerDeckCount = document.getElementById("playerDeckCount");
 let highScore = document.getElementById("highScore");
 let correct = document.getElementById("correct");
 let timeName = document.getElementById("timeName");
+let gameCount = document.getElementById("played");
 
 let cardNum = [2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14];
 let suit = ["♠", "♦️", "♥️", "♣️"];
 
+let gamePlayed = 0;
+let play = 0;
 let aceScore = 0;
 let playerDeck = [];
 let lives = 5;
@@ -178,18 +181,24 @@ function guessCard(highLowGuess) {
   }, 1500);
 }
 
+const gameIncrease = () => {};
+
 function startGame() {
   timerCount = 30;
   console.log("start Game");
   newDeck();
   startTimer();
   showTopCard();
+  gameIncrease();
   buttonStart.className = "hide";
   rightCard.classList.add("flipped");
   console.log("Check");
 }
 
-buttonStart.addEventListener("click", startGame);
+buttonStart.addEventListener("click", () => {
+  startGame();
+  play++;
+});
 
 buttonHigher.addEventListener("click", () => {
   guessCard("higher");
@@ -210,9 +219,21 @@ const setLocalStorage = () => {
   if (aceScore < score) {
     localStorage.setItem("acescore", score);
   }
+  if (gamePlayed < play) {
+    localStorage.setItem("gamePlayed", play);
+  }
 };
 
+// const gamePlayCount = JSON.parse(localStorage.getItem("gamePlayed"));
 const playerScoreCard = JSON.parse(localStorage.getItem("acescore"));
+
+if (gamePlayCount) {
+  gamePlayed = gamePlayCount;
+} else {
+  localStorage.setItem("gamePlayed", 0);
+  gamePlayed = 0;
+}
+gameCount.textContent = gamePlayed;
 
 if (playerScoreCard) {
   aceScore = playerScoreCard;
@@ -221,3 +242,8 @@ if (playerScoreCard) {
   aceScore = 0;
 }
 highScore.textContent = aceScore;
+
+// const score = localStorage.getItem("acescore");
+
+// document.getElementById("highscore").textContent = score;
+// console.log(score);
