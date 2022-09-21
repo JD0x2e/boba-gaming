@@ -219,7 +219,5 @@ if (playerScoreCard) {
 } else {
   localStorage.setItem("acescore", 0);
   aceScore = 0;
-
-  window.localStorage.href = "./index.html";
 }
 highScore.textContent = aceScore;
