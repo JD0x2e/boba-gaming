@@ -34,3 +34,17 @@ const score = localStorage.getItem("acescore");
 
 document.getElementById("highscore").textContent = score;
 console.log(score);
+
+// Memory game local storage start
+
+let scoreSpan = document.getElementById("memoryHighestScore");
+let memoryScore = 0;
+
+const scoresFromLocalStorage = JSON.parse(localStorage.getItem("memoryScore"));
+if (scoresFromLocalStorage) {
+  memoryScore = scoresFromLocalStorage;
+}
+
+scoreSpan.textContent = memoryScore;
+
+// Memory game local storage end
