@@ -11,28 +11,64 @@
     />
     <script src="https://kit.fontawesome.com/4cf28b02ab.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="reset.css" />
+    <link rel="stylesheet" href="/header-footer.css" />
     <link rel="stylesheet" href="style.css" />
     <title>Document</title>
   </head>
   <body>
     <header>
-      <div class="header-container">
-        <div class="logo">
-          <img src="./img/logoheader.png" alt="" />
+          <div class="header-container">
+        <div class="logo-container">
+          <a href="../index.html">
+          <img id="logo-img" src="/images/logoTwo.svg" alt="logo" />
+          </a>
         </div>
-        <div class="navlist">
-            <div class="hamburger-menu">
-    <input class="hidden" id="menu__toggle" type="checkbox" />
-    <label class="menu__btn" for="menu__toggle">
-      <span></span>
-    </label>
-        <ul class="menu__box">
-          <li><a class="menu__item" href="../index.html">Home Page</a></li>
-          <li><a class="menu__item" href="../guess-who/index.html">GuessWho</a></li>
-          <li><a class="menu__item" href="../memory-game/index.html">Memory Game</a></li>
-        </ul>
+        <div class="hamburger-menu">
+          <input id="menu-toggle" type="checkbox" />
+          <label class="menu-btn" for="menu-toggle">
+            <span></span>
+          </label>
+          <ul class="menu-box">
+            <li>
+              <a class="menu-item" href="index.html">Home</a>
+            </li>
+            <li>
+              <a class="menu-item" href="./guess-who/index.html">Guess Who</a>
+            </li>
+            <li>
+              <a class="menu-item" href="./ace-of-spades/ace-of-spade.html"
+                >Ace of Spades</a
+              >
+            </li>
+            <li>
+              <a class="menu-item" href="./memory-game/index.html"
+                >Memory Game</a
+              >
+            </li>
+          </ul>
         </div>
-      </div>
+        <div class="nav-container">
+          <ul id="nav-list">
+            <li class="nav-list-item">
+              <a class="nav-list-link" href="../guess-who/index.html"
+                >Guess Who</a
+              >
+            </li>
+            <li class="nav-list-item">
+              <a class="nav-list-link" href="../ace-of-spades/ace-of-spade.html"
+                >Ace of Spades</a
+              >
+            </li>
+            <li class="nav-list-item">
+              <a
+                class="nav-list-link"
+                class="nav-list-link"
+                href="../memory-game/index.html"
+                >Memory Game</a
+              >
+            </li>
+          </ul>
+        </div>
       </div>
     </header>
     <main>
