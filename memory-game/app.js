@@ -68,7 +68,7 @@ Card.prototype.render = function () {
   flipBoxBack.appendChild(carImg);
 
   let logoImg = document.createElement("img");
-  logoImg.src = "./images/logoBig.svg";
+  logoImg.src = "/images/logoBig.svg";
   logoImg.alt = "Boba Gaming Logo";
   flipBoxFront.appendChild(logoImg);
 
